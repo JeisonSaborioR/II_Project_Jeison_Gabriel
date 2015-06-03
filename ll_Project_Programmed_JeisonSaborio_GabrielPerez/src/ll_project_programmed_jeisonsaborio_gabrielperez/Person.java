@@ -5,7 +5,7 @@ public abstract class Person {
     private String name;
     private String lastName;
     private char genre;
-    private String emailAdress;
+    private String emailAddress;
     private String passWord;
     private String passwordConfirmation;
     private int phoneNumber;
@@ -14,7 +14,7 @@ public abstract class Person {
         this.name = name;
         this.lastName = lastName;
         this.genre = genre;
-        this.emailAdress = emailAdress;
+        this.emailAddress = emailAdress;
         this.passWord = passWord;
         this.passwordConfirmation = passwordConfirmation;
         this.phoneNumber = phoneNumber;
@@ -47,12 +47,12 @@ public abstract class Person {
         this.genre = genre;
     }
 
-    public String getEmailAdress() {
-        return emailAdress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmailAdress(String emailAdress) {
-        this.emailAdress = emailAdress;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getPassWord() {
