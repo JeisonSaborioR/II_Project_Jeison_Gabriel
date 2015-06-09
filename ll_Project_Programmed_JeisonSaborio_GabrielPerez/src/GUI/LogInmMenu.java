@@ -37,7 +37,7 @@ public class LogInmMenu extends javax.swing.JFrame {
         TxtEmailAddress = new javax.swing.JTextField();
         BtoLogIn = new javax.swing.JButton();
         BtoSignUp = new javax.swing.JButton();
-        TxtPPassWord = new javax.swing.JPasswordField();
+        TxtPassWord = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,15 +76,15 @@ public class LogInmMenu extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtPPassWord)
+                    .addComponent(TxtPassWord)
                     .addComponent(TxtEmailAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                 .addGap(140, 140, 140))
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(BtoLogIn)
-                .addGap(66, 66, 66)
+                .addGap(86, 86, 86)
                 .addComponent(BtoSignUp)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtoLogIn)
+                .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,12 +96,12 @@ public class LogInmMenu extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(TxtPPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                    .addComponent(TxtPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtoLogIn)
-                    .addComponent(BtoSignUp))
-                .addGap(73, 73, 73))
+                    .addComponent(BtoSignUp)
+                    .addComponent(BtoLogIn))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,8 +119,19 @@ public class LogInmMenu extends javax.swing.JFrame {
 
     private void BtoLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoLogInActionPerformed
         // TODO add your handling code here:
+        
+        
+        if(TxtEmailAddress.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this , "Empty email");
+            return;
+        }
+        if(TxtPassWord.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this , "Empty password");
+            return;
+        }
+        
         String email = TxtEmailAddress.getText();
-        String passWord = new String (TxtPPassWord.getPassword());
+        String passWord = new String (TxtPassWord.getPassword());
         passWord = DigestUtils.md5Hex(passWord);
         System.out.println(passWord);
         for(int i = 0; i < GlobalVariables.getInstance().peopleList.size();i++){
@@ -180,7 +191,7 @@ public class LogInmMenu extends javax.swing.JFrame {
     private javax.swing.JButton BtoLogIn;
     private javax.swing.JButton BtoSignUp;
     private javax.swing.JTextField TxtEmailAddress;
-    private javax.swing.JPasswordField TxtPPassWord;
+    private javax.swing.JPasswordField TxtPassWord;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     // End of variables declaration//GEN-END:variables

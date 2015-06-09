@@ -31,17 +31,17 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TxtPPassWord" max="32767" attributes="0"/>
+                  <Component id="TxtPassWord" max="32767" attributes="0"/>
                   <Component id="TxtEmailAddress" pref="139" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-              <Component id="BtoLogIn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
               <Component id="BtoSignUp" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="BtoLogIn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,14 +56,14 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtPPassWord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtPassWord" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="83" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BtoLogIn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtoSignUp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtoLogIn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+              <EmptySpace pref="84" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -100,7 +100,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtoSignUpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="TxtPPassWord">
+    <Component class="javax.swing.JPasswordField" name="TxtPassWord">
     </Component>
   </SubComponents>
 </Form>

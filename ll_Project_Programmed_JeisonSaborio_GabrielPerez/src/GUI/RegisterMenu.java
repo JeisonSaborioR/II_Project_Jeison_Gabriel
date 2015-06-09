@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -110,6 +111,11 @@ public class RegisterMenu extends javax.swing.JFrame {
         jLabel11.setText("Country:");
 
         TxtCurrency.setEnabled(false);
+        TxtCurrency.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCurrencyActionPerformed(evt);
+            }
+        });
 
         TxtCountry.setEnabled(false);
 
@@ -192,12 +198,11 @@ public class RegisterMenu extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RadFemenino)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(RadMasculino)))
+                    .addComponent(RadMasculino))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -322,16 +327,44 @@ public class RegisterMenu extends javax.swing.JFrame {
            throw new PassWordException("Different passwords");
         }
     }
-    
+    static void chekPassword(String password) throws PassWordException{
+          char[] charPassword = password.toCharArray();
+          
+          if((password.length()>20) || (password.length()<6)){
+              throw new PassWordException();
+          }
+          
+          int count = 0;
+          for (int i = 0; i < charPassword.length; i++) {
+             
+                int temp = (int) charPassword[i];
+                if((temp>47) &&(temp<58) ){
+                    count ++;
+                }
+
+          }
+          if(count == 0){
+              throw new PassWordException();
+          }
+ 
+      }
  
     private void BtoAddPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoAddPersonActionPerformed
   
-   
+        
         try {
+            
+            String passWord = new String (TxtPPassWord.getPassword());
+            chekPassword(passWord);
             Add();
-        } catch (PassWordException ex) {
-            Logger.getLogger(RegisterMenu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PassWordException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
+        
+      
+        
+        
+        
       
        
         
@@ -423,16 +456,25 @@ public class RegisterMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         TxtFStartDate.disable();
         TxtCurrency.enable();
-        TxtCountry.enable();
+        TxtCurrency.setBackground(Color.white);
+        TxtCountry.enable();        
+        TxtCountry.setBackground(Color.white);
+        
     }//GEN-LAST:event_RadCustomerActionPerformed
 
     private void RadStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadStaffActionPerformed
         // TODO add your handling code here:
         TxtCurrency.disable();
+        TxtCurrency.setBackground(Color.gray);
         TxtCountry.disable();
+        TxtCountry.setBackground(Color.gray);
         TxtFStartDate.enable();
         
     }//GEN-LAST:event_RadStaffActionPerformed
+
+    private void TxtCurrencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCurrencyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCurrencyActionPerformed
 
  
     public static String ReturnDate(){
