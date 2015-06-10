@@ -10,7 +10,9 @@ public class GlobalVariables {
     
     public GlobalVariables() {
         peopleList = new ArrayList();
+        hotelList = new ArrayList();
     }
+    
     
     public static GlobalVariables getInstance(){
         
@@ -36,4 +38,14 @@ public class GlobalVariables {
     public void setHotelList(Hotel h){
         this.hotelList.add(h);
     }
+    
+    public void deleteHotel(String name){
+        for (int i = 0; i < hotelList.size(); i++) {
+            if(hotelList.get(i).getName().equals(name)){
+                hotelList.remove(i);
+            }
+        }
+    }
+    
+    
 }

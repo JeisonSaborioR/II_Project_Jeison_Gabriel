@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
@@ -15,9 +16,7 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
  */
 public class StaffMain extends javax.swing.JFrame {
 
-    /**
-     * Creates new form StaffMain
-     */
+    String originalName;
     public StaffMain() {
         initComponents();
     }
@@ -59,6 +58,37 @@ public class StaffMain extends javax.swing.JFrame {
         ButtonCreateHotel = new javax.swing.JButton();
         ButtonExit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        TextHotelSearch = new javax.swing.JTextField();
+        ButtonSearchHotel = new javax.swing.JButton();
+        jPanel50 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        TextHotelNameManage = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        TextHotelAddressManage = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        TextHotelCountryManage = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        TextHotelPhoneNumberManage = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        TextHotelYearOfBuildingManage = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        ComboBoxHotelKindOfLodgingManage = new javax.swing.JComboBox();
+        jLabel19 = new javax.swing.JLabel();
+        TextHotelSizeManage = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TextPaneHotelRequirementsForCheckInManage = new javax.swing.JTextPane();
+        jLabel23 = new javax.swing.JLabel();
+        ComboBoxHotelStarsManage = new javax.swing.JComboBox();
+        ComboBoxHotelHourOfCheckInManage = new javax.swing.JComboBox();
+        ComboBoxHotelHourOfCheckOutManage = new javax.swing.JComboBox();
+        ButtonExitManage = new javax.swing.JButton();
+        ButtonSaveManage = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        ButtonDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,9 +120,9 @@ public class StaffMain extends javax.swing.JFrame {
 
         ComboBoxHotelStars.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
 
-        ComboBoxHotelHourOfCheckIn.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "6 am", "7 am", "8 am", "9 am", "10 am", "11 am" }));
+        ComboBoxHotelHourOfCheckIn.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 am", "8 am", "9 am" }));
 
-        ComboBoxHotelHourOfCheckOut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm" }));
+        ComboBoxHotelHourOfCheckOut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 pm", "8 pm", "9 pm" }));
 
         ButtonCreateHotel.setText("Create");
         ButtonCreateHotel.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +152,7 @@ public class StaffMain extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel7))
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -133,7 +163,7 @@ public class StaffMain extends javax.swing.JFrame {
                                 .addComponent(TextHotelYearOfBuilding))
                             .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -141,24 +171,20 @@ public class StaffMain extends javax.swing.JFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel6))
                                 .addGap(57, 57, 57)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(ComboBoxHotelHourOfCheckIn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelKindOfLodging, 0, 200, Short.MAX_VALUE)
                                     .addComponent(ComboBoxHotelHourOfCheckOut, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ComboBoxHotelKindOfLodging, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(ComboBoxHotelStars, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(0, 153, Short.MAX_VALUE))))
+                                    .addComponent(ComboBoxHotelStars, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1)))
-                        .addContainerGap())
+                                .addComponent(jScrollPane1))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ButtonExit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ButtonCreateHotel)
-                        .addGap(130, 130, 130))))
+                        .addGap(483, 483, 483)
+                        .addComponent(ButtonCreateHotel)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +228,7 @@ public class StaffMain extends javax.swing.JFrame {
                             .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonCreateHotel)
                     .addComponent(ButtonExit))
@@ -211,15 +237,205 @@ public class StaffMain extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Add Hotel", jPanel1);
 
+        jLabel12.setText("Hotel Name to manage");
+
+        ButtonSearchHotel.setText("Search");
+        ButtonSearchHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSearchHotelActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Hotel name");
+
+        jLabel14.setText("Address ");
+
+        jLabel15.setText("Country");
+
+        jLabel16.setText("Phone number");
+
+        jLabel17.setText("Year of building");
+
+        jLabel18.setText("kind of lodging");
+
+        ComboBoxHotelKindOfLodgingManage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mountain", "Beach", "City" }));
+
+        jLabel19.setText("Size");
+
+        jLabel20.setText("Hour of Check in");
+
+        jLabel21.setText("Hour of Check out");
+
+        jLabel22.setText("Requirements for check in");
+
+        jScrollPane2.setViewportView(TextPaneHotelRequirementsForCheckInManage);
+
+        jLabel23.setText("Stars");
+
+        ComboBoxHotelStarsManage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
+
+        ComboBoxHotelHourOfCheckInManage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 am", "8 am", "9 am" }));
+
+        ComboBoxHotelHourOfCheckOutManage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 pm", "8 pm", "9 pm" }));
+
+        ButtonExitManage.setText("Exit");
+        ButtonExitManage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonExitManageActionPerformed(evt);
+            }
+        });
+
+        ButtonSaveManage.setText("Save");
+        ButtonSaveManage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSaveManageActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel50Layout = new javax.swing.GroupLayout(jPanel50);
+        jPanel50.setLayout(jPanel50Layout);
+        jPanel50Layout.setHorizontalGroup(
+            jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel50Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel13))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TextHotelNameManage, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonExitManage)
+                    .addGroup(jPanel50Layout.createSequentialGroup()
+                        .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextHotelAddressManage, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                .addComponent(TextHotelCountryManage)
+                                .addComponent(TextHotelPhoneNumberManage)
+                                .addComponent(TextHotelYearOfBuildingManage))
+                            .addComponent(TextHotelSizeManage, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel50Layout.createSequentialGroup()
+                                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel18))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ComboBoxHotelKindOfLodgingManage, javax.swing.GroupLayout.Alignment.LEADING, 0, 224, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelStarsManage, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelHourOfCheckOutManage, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelHourOfCheckInManage, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel50Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2)
+                                    .addGroup(jPanel50Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(ButtonSaveManage)))))))
+                .addGap(0, 69, Short.MAX_VALUE))
+        );
+        jPanel50Layout.setVerticalGroup(
+            jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel50Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(TextHotelNameManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(ComboBoxHotelHourOfCheckInManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextHotelAddressManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel21)
+                    .addComponent(ComboBoxHotelHourOfCheckOutManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextHotelCountryManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel18)
+                    .addComponent(ComboBoxHotelKindOfLodgingManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel50Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextHotelPhoneNumberManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel50Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(ComboBoxHotelStarsManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel50Layout.createSequentialGroup()
+                        .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(TextHotelYearOfBuildingManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(TextHotelSizeManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonExitManage)
+                    .addComponent(ButtonSaveManage))
+                .addGap(23, 23, 23))
+        );
+
+        ButtonDelete.setText("Delete Hotel");
+        ButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(26, 26, 26)
+                        .addComponent(TextHotelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ButtonSearchHotel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonDelete)
+                        .addGap(83, 83, 83))))
+            .addComponent(jSeparator1)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(TextHotelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonSearchHotel)
+                    .addComponent(ButtonDelete))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Manage Hotels", jPanel2);
@@ -250,6 +466,8 @@ public class StaffMain extends javax.swing.JFrame {
         TextHotelCountry.setText(null);
         TextHotelPhoneNumber.setText(null);
         TextPaneHotelRequirementsForCheckIn.setText(null);
+        TextHotelSize.setText(null);
+        TextHotelYearOfBuilding.setText(null);
  
     }
     
@@ -275,7 +493,7 @@ public class StaffMain extends javax.swing.JFrame {
             size = Integer.parseInt(TextHotelSize.getText());
             yearOfBuilding = Integer.parseInt(TextHotelYearOfBuilding.getText());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Please enter just numbers in Phone Number, size andYear Of Building");
+            JOptionPane.showMessageDialog(this,"Please enter just numbers in Phone Number, size and Year Of Building");
             return;
         }
         int numberStars = Integer.parseInt(ComboBoxHotelStars.getSelectedItem().toString());
@@ -284,11 +502,129 @@ public class StaffMain extends javax.swing.JFrame {
         String hourOfCheckout  = ComboBoxHotelHourOfCheckOut.getSelectedItem().toString();
         String requirements = TextPaneHotelRequirementsForCheckIn.getText();
     
-        Hotel hotel = new Hotel(name, address, country, phoneNumber, numberStars, kindOfLodging, hourOfCheckIn, hourOfCheckout, requirements, size, yearOfBuilding);
-        GlobalVariables.getInstance().setHotelList(hotel);
+        
+        GlobalVariables.getInstance().hotelList.add(new Hotel(name, address, country, phoneNumber, numberStars, kindOfLodging, hourOfCheckIn, hourOfCheckout, requirements, size, yearOfBuilding));
         JOptionPane.showMessageDialog(this, "The hotel has been added");
         cleanInfo();
     }//GEN-LAST:event_ButtonCreateHotelActionPerformed
+
+    private void ButtonSearchHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSearchHotelActionPerformed
+
+        if(TextHotelSearch.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please enter a hotel");
+            return;
+        }
+                
+        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();      
+        
+        for (int i = 0; i < hotels.size(); i++) {
+            if(hotels.get(i).getName().equals(TextHotelSearch.getText())){
+                originalName = hotels.get(i).getName();
+                TextHotelNameManage.setText(hotels.get(i).getName());
+                TextHotelAddressManage.setText(hotels.get(i).getAddress());
+                TextHotelCountryManage.setText(hotels.get(i).getCountry());
+                TextHotelPhoneNumberManage.setText(String.valueOf(hotels.get(i).getPhoneNumber()));
+                TextPaneHotelRequirementsForCheckInManage.setText(hotels.get(i).getRequirementsCheckIn());
+                TextHotelSizeManage.setText(String.valueOf(hotels.get(i).getSize()));
+                TextHotelYearOfBuildingManage.setText(String.valueOf(hotels.get(i).getYearOfBuilding()));
+                
+                if(hotels.get(i).getHourCheckIn().equals("7 am")){
+                    ComboBoxHotelHourOfCheckInManage.setSelectedIndex(0);
+                }else if(hotels.get(i).getHourCheckIn().equals("8 am")){
+                    ComboBoxHotelHourOfCheckInManage.setSelectedIndex(1);
+                }else{
+                    ComboBoxHotelHourOfCheckInManage.setSelectedIndex(2);
+                }
+               
+                if(hotels.get(i).getHourCheckOut().equals("7 pm")){
+                    ComboBoxHotelHourOfCheckOutManage.setSelectedIndex(0);
+                }else if(hotels.get(i).getHourCheckOut().equals("8 pm")){
+                    ComboBoxHotelHourOfCheckOutManage.setSelectedIndex(1);
+                }else{
+                    ComboBoxHotelHourOfCheckOutManage.setSelectedIndex(2);
+                }
+                
+                if(hotels.get(i).getAccommodationType().equals("Mountain")){
+                    ComboBoxHotelKindOfLodgingManage.setSelectedIndex(0);
+                }else if(hotels.get(i).getAccommodationType().equals("Beach")){
+                    ComboBoxHotelKindOfLodgingManage.setSelectedIndex(1);
+                }else{
+                    ComboBoxHotelKindOfLodgingManage.setSelectedIndex(2);
+                }
+                
+                ComboBoxHotelStarsManage.setSelectedIndex(hotels.get(i).getNumberStars()-1);
+
+            }
+        }
+        
+    }//GEN-LAST:event_ButtonSearchHotelActionPerformed
+
+    public void cleanInfoManage(){
+        TextHotelNameManage.setText(null);
+        TextHotelAddressManage.setText(null);
+        TextHotelCountryManage.setText(null);
+        TextHotelPhoneNumberManage.setText(null);
+        TextPaneHotelRequirementsForCheckInManage.setText(null);
+        TextHotelSizeManage.setText(null);
+        TextHotelYearOfBuildingManage.setText(null);
+ 
+    }
+    private void ButtonSaveManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveManageActionPerformed
+        if(TextHotelNameManage.getText().isEmpty() || TextHotelAddressManage.getText().isEmpty()
+           || TextHotelCountryManage.getText().isEmpty() ||TextHotelPhoneNumberManage.getText().isEmpty()
+           || TextHotelSizeManage.getText().isEmpty() || TextHotelYearOfBuildingManage.getText().isEmpty() ){
+            
+            JOptionPane.showMessageDialog(this, "Please complete all text fields");
+            return;
+        }
+
+        String name = TextHotelNameManage.getText();
+        String address = TextHotelAddressManage.getText();
+        String country = TextHotelCountryManage.getText();
+        int phoneNumber = 0;
+        int size =0;
+        int yearOfBuilding =0;
+        try {
+            phoneNumber = Integer.parseInt(TextHotelPhoneNumberManage.getText());
+            size = Integer.parseInt(TextHotelSizeManage.getText());
+            yearOfBuilding = Integer.parseInt(TextHotelYearOfBuildingManage.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Please enter just numbers in Phone Number, size and Year Of Building");
+            return;
+        }
+        int numberStars = Integer.parseInt(ComboBoxHotelStarsManage.getSelectedItem().toString());
+        String kindOfLodging = ComboBoxHotelKindOfLodgingManage.getSelectedItem().toString();
+        String hourOfCheckIn = ComboBoxHotelHourOfCheckInManage.getSelectedItem().toString();
+        String hourOfCheckout  = ComboBoxHotelHourOfCheckOutManage.getSelectedItem().toString();
+        String requirements = TextPaneHotelRequirementsForCheckInManage.getText();
+    
+        
+        GlobalVariables.getInstance().hotelList.add(new Hotel(name, address, country, phoneNumber, numberStars, kindOfLodging, hourOfCheckIn, hourOfCheckout, requirements, size, yearOfBuilding));
+        GlobalVariables.getInstance().deleteHotel(originalName);
+
+        JOptionPane.showMessageDialog(this, "The hotel has been modified");
+        cleanInfoManage();
+        
+    }//GEN-LAST:event_ButtonSaveManageActionPerformed
+
+    private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
+        if(TextHotelSearch.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "First search a hotel");
+            return;
+        }
+        if(JOptionPane.showConfirmDialog(this, "Do you want continue with deleting of "+originalName+" Hotel") !=0){
+            return;
+        }
+        GlobalVariables.getInstance().deleteHotel(originalName);
+        cleanInfoManage();
+        JOptionPane.showMessageDialog(this,"The hotel has been cleared");
+    }//GEN-LAST:event_ButtonDeleteActionPerformed
+
+    private void ButtonExitManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExitManageActionPerformed
+        LogInmMenu logInMenu = new LogInmMenu();
+        logInMenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ButtonExitManageActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,22 +663,50 @@ public class StaffMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCreateHotel;
+    private javax.swing.JButton ButtonDelete;
     private javax.swing.JButton ButtonExit;
+    private javax.swing.JButton ButtonExitManage;
+    private javax.swing.JButton ButtonSaveManage;
+    private javax.swing.JButton ButtonSearchHotel;
     private javax.swing.JComboBox ComboBoxHotelHourOfCheckIn;
+    private javax.swing.JComboBox ComboBoxHotelHourOfCheckInManage;
     private javax.swing.JComboBox ComboBoxHotelHourOfCheckOut;
+    private javax.swing.JComboBox ComboBoxHotelHourOfCheckOutManage;
     private javax.swing.JComboBox ComboBoxHotelKindOfLodging;
+    private javax.swing.JComboBox ComboBoxHotelKindOfLodgingManage;
     private javax.swing.JComboBox ComboBoxHotelStars;
+    private javax.swing.JComboBox ComboBoxHotelStarsManage;
     private javax.swing.JTextField TextHotelAddress;
+    private javax.swing.JTextField TextHotelAddressManage;
     private javax.swing.JTextField TextHotelCountry;
+    private javax.swing.JTextField TextHotelCountryManage;
     private javax.swing.JTextField TextHotelName;
+    private javax.swing.JTextField TextHotelNameManage;
     private javax.swing.JTextField TextHotelPhoneNumber;
+    private javax.swing.JTextField TextHotelPhoneNumberManage;
+    private javax.swing.JTextField TextHotelSearch;
     private javax.swing.JTextField TextHotelSize;
+    private javax.swing.JTextField TextHotelSizeManage;
     private javax.swing.JTextField TextHotelYearOfBuilding;
+    private javax.swing.JTextField TextHotelYearOfBuildingManage;
     private javax.swing.JTextPane TextPaneHotelRequirementsForCheckIn;
+    private javax.swing.JTextPane TextPaneHotelRequirementsForCheckInManage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -352,7 +716,10 @@ public class StaffMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel50;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

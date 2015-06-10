@@ -24,7 +24,7 @@ public class Hotel {
     protected ArrayList<Season> seasonList;
     
 
-    public Hotel(String name, String address, String country, int phoneNumber,int numberStars, String accommodationType, String hourCheckIn, String hourCheckOut, String requirementsCheckIn, int size,int yearOfBuilding) {
+    public Hotel(String name, String address, String country, int phoneNumber,int numberStars, String accommodationType, String hourCheckIn, String hourCheckOut, String requirementsCheckIn, int sizeTier,int yearOfBuilding) {
         
         
         this.name = name;
@@ -37,7 +37,7 @@ public class Hotel {
         this.hourCheckOut = hourCheckOut;
         this.requirementsCheckIn = requirementsCheckIn;
         this.yearOfBuilding = yearOfBuilding;
-        this.size = size;
+        this.size = sizeTier;
         this.photos = new ArrayList<>();
         this.attractionList = new ArrayList<>();
         this.serviceList = new ArrayList<>();
@@ -65,6 +65,7 @@ public class Hotel {
     public void setSize(int size) {
         this.size = size;
     }
+
 
     public void setName(String name) {
         this.name = name;
