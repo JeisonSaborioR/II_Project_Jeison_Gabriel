@@ -14,6 +14,8 @@ public class Hotel {
     private String hourCheckIn;
     private String hourCheckOut;
     private String requirementsCheckIn;
+    private int yearOfBuilding;
+    private int size;
     protected ArrayList<String> photos;
     protected ArrayList<Attraction> attractionList;
     protected ArrayList<Service> serviceList;
@@ -22,16 +24,20 @@ public class Hotel {
     protected ArrayList<Season> seasonList;
     
 
-    public Hotel(String name, String address, String country, int cellPhone, int numberStars, String accommodationType, String hourCheckIn, String hourCheckOut, String requirementsCheckIn) {
+    public Hotel(String name, String address, String country, int phoneNumber,int numberStars, String accommodationType, String hourCheckIn, String hourCheckOut, String requirementsCheckIn, int size,int yearOfBuilding) {
+        
+        
         this.name = name;
         this.address = address;
         this.country = country;
-        this.phoneNumber = cellPhone;
+        this.phoneNumber = phoneNumber;
         this.numberStars = numberStars;
         this.accommodationType = accommodationType;
         this.hourCheckIn = hourCheckIn;
         this.hourCheckOut = hourCheckOut;
         this.requirementsCheckIn = requirementsCheckIn;
+        this.yearOfBuilding = yearOfBuilding;
+        this.size = size;
         this.photos = new ArrayList<>();
         this.attractionList = new ArrayList<>();
         this.serviceList = new ArrayList<>();
@@ -42,6 +48,22 @@ public class Hotel {
     
     public String getName() {
         return name;
+    }
+
+    public int getYearOfBuilding() {
+        return yearOfBuilding;
+    }
+
+    public void setYearOfBuilding(int yearOfBuilding) {
+        this.yearOfBuilding = yearOfBuilding;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void setName(String name) {

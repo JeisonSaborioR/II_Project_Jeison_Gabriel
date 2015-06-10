@@ -115,6 +115,7 @@ public class LogInmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         RegisterMenu registerMenu = new RegisterMenu();
         registerMenu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtoSignUpActionPerformed
 
     private void BtoLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoLogInActionPerformed
@@ -140,9 +141,11 @@ public class LogInmMenu extends javax.swing.JFrame {
                     if(GlobalVariables.getInstance().peopleList.get(i).getType().equals("Customer")){
                         CustomerMain customerMain = new CustomerMain();
                         customerMain.setVisible(true);
+                        this.setVisible(false);
                     }else if(GlobalVariables.getInstance().peopleList.get(i).getType().equals("Staff")){
                         StaffMain staffMain = new StaffMain();
                         staffMain.setVisible(true);
+                       this.setVisible(false);
                     }
                 }
                 else{
@@ -150,6 +153,7 @@ public class LogInmMenu extends javax.swing.JFrame {
                 }
             }
         }
+        
     }//GEN-LAST:event_BtoLogInActionPerformed
 
     /**
