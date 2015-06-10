@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class GlobalVariables {
     public static GlobalVariables instance;
     public ArrayList<Person> peopleList;
+    public ArrayList<Hotel> hotelList;
     
     public GlobalVariables() {
         peopleList = new ArrayList();
@@ -26,5 +27,13 @@ public class GlobalVariables {
     public void setPeopleList(Person p) {
         
         this.peopleList.add(p);
+    }
+    
+    public ArrayList<Hotel> getAll(){
+        return instance.hotelList;
+    }
+    
+    public void setHotelList(Hotel h){
+        this.hotelList.add(h);
     }
 }

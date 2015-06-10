@@ -6,6 +6,7 @@
 package GUI;
 
 import javax.swing.JOptionPane;
+import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
 
 /**
@@ -135,15 +136,11 @@ public class StaffMain extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel11))
-                                        .addGap(57, 57, 57))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(75, 75, 75)))
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel6))
+                                .addGap(57, 57, 57)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ComboBoxHotelHourOfCheckIn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(ComboBoxHotelHourOfCheckOut, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -188,10 +185,10 @@ public class StaffMain extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
+                    .addComponent(ComboBoxHotelStars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(TextHotelPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11)
-                        .addComponent(ComboBoxHotelStars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel11)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -257,6 +254,16 @@ public class StaffMain extends javax.swing.JFrame {
     }
     
     private void ButtonCreateHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateHotelActionPerformed
+        
+        if(TextHotelName.getText().isEmpty() || TextHotelAddress.getText().isEmpty()
+           || TextHotelCountry.getText().isEmpty() ||TextHotelPhoneNumber.getText().isEmpty()
+           || TextHotelSize.getText().isEmpty() || TextHotelYearOfBuilding.getText().isEmpty() ){
+            
+            JOptionPane.showMessageDialog(this, "Please complete all text fields");
+            return;
+        }
+
+        
         String name = TextHotelName.getText();
         String address = TextHotelAddress.getText();
         String country = TextHotelCountry.getText();
@@ -278,6 +285,7 @@ public class StaffMain extends javax.swing.JFrame {
         String requirements = TextPaneHotelRequirementsForCheckIn.getText();
     
         Hotel hotel = new Hotel(name, address, country, phoneNumber, numberStars, kindOfLodging, hourOfCheckIn, hourOfCheckout, requirements, size, yearOfBuilding);
+        GlobalVariables.getInstance().setHotelList(hotel);
         JOptionPane.showMessageDialog(this, "The hotel has been added");
         cleanInfo();
     }//GEN-LAST:event_ButtonCreateHotelActionPerformed
