@@ -22,6 +22,7 @@ public class Hotel {
     protected ArrayList<Staff> staffList;
     protected ArrayList<Reservation> reservationList;
     protected ArrayList<Season> seasonList;
+    protected ArrayList<Room> roomsList;
     
 
     public Hotel(String name, String address, String country, int phoneNumber,int numberStars, String accommodationType, String hourCheckIn, String hourCheckOut, String requirementsCheckIn, int sizeTier,int yearOfBuilding) {
@@ -43,6 +44,7 @@ public class Hotel {
         this.serviceList = new ArrayList<>();
         this.staffList = new ArrayList<>();
         this.seasonList = new ArrayList<>();
+        this.roomsList = new ArrayList<>();
         
     }
     
@@ -61,6 +63,7 @@ public class Hotel {
     public int getSize() {
         return size;
     }
+
 
     public void setSize(int size) {
         this.size = size;
@@ -191,7 +194,13 @@ public class Hotel {
         this.seasonList.add(seasonList);
     }
     
-    
+    public ArrayList<Room> getRoomsList() {
+        return roomsList;
+    }
+
+    public void setRoomsList(Room rooms) {
+        this.roomsList.add(rooms);
+    }
     
     
     

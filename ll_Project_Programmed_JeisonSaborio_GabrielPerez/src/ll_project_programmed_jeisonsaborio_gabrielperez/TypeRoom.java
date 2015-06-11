@@ -4,20 +4,20 @@ package ll_project_programmed_jeisonsaborio_gabrielperez;
 public class TypeRoom {
     private String name;
     private int maximumPeople;
-    private String size;
+    private int size;
     private String description;
     private boolean terrace;
-    private boolean view;
+    private boolean seaView;
     private boolean everythingIncluded;
     private boolean smoke;
 
-    public TypeRoom(String name, int maximumPeople, String size, String description, boolean terrace, boolean view, boolean everythingIncluded, boolean smoke) {
+    public TypeRoom(String name, int maximumPeople, int size, String description, boolean terrace, boolean view, boolean everythingIncluded, boolean smoke) {
         this.name = name;
         this.maximumPeople = maximumPeople;
         this.size = size;
         this.description = description;
         this.terrace = terrace;
-        this.view = view;
+        this.seaView = view;
         this.everythingIncluded = everythingIncluded;
         this.smoke = smoke;
     }
@@ -40,11 +40,11 @@ public class TypeRoom {
         this.maximumPeople = maximumPeople;
     }
 
-    public String getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
@@ -65,11 +65,11 @@ public class TypeRoom {
     }
 
     public boolean isView() {
-        return view;
+        return seaView;
     }
 
     public void setView(boolean view) {
-        this.view = view;
+        this.seaView = view;
     }
 
     public boolean isEverythingIncluded() {

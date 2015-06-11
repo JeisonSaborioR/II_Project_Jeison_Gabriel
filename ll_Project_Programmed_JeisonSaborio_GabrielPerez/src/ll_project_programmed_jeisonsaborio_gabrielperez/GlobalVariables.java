@@ -47,5 +47,15 @@ public class GlobalVariables {
         }
     }
     
+    public void addRoomToHotel(int hotel, Room room ){
+        this.hotelList.get(hotel).getRoomsList().add(room);
+    }
     
+    public void addAttractionToHotel(int hotel, Attraction attraction ){
+        this.hotelList.get(hotel).getAttractionList().add(attraction);
+    }
+    
+    public void addServicesToHotel(int hotel, Service service ){
+        this.hotelList.get(hotel).getServiceList().add(service);
+    }
 }
