@@ -8,6 +8,7 @@ public class GlobalVariables {
     public ArrayList<Person> peopleList;
     public ArrayList<Hotel> hotelList;
     
+    
     public GlobalVariables() {
         peopleList = new ArrayList();
         hotelList = new ArrayList();
@@ -38,6 +39,9 @@ public class GlobalVariables {
     public void setHotelList(Hotel h){
         this.hotelList.add(h);
     }
+
+   
+    
     
     public void deleteHotel(String name){
         for (int i = 0; i < hotelList.size(); i++) {
@@ -57,5 +61,8 @@ public class GlobalVariables {
     
     public void addServicesToHotel(int hotel, Service service ){
         this.hotelList.get(hotel).getServiceList().add(service);
+    }
+    public void addSeasonsToHotel(int hotel, Season season ){
+        this.hotelList.get(hotel).getSeasonList().add(season);
     }
 }

@@ -11,6 +11,7 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.Attraction;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Room;
+import ll_project_programmed_jeisonsaborio_gabrielperez.Season;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Service;
 import ll_project_programmed_jeisonsaborio_gabrielperez.TypeRoom;
 
@@ -64,34 +65,6 @@ public class StaffMain extends javax.swing.JFrame {
         ComboBoxHotelHourOfCheckOut = new javax.swing.JComboBox();
         ButtonCreateHotel = new javax.swing.JButton();
         ButtonExit = new javax.swing.JButton();
-        jLabel29 = new javax.swing.JLabel();
-        TextGeenSeasonPriceAdultSuit = new javax.swing.JTextField();
-        TextHighSeasonPriceAdultSuit = new javax.swing.JTextField();
-        TextLowSeasonPriceAdultSuit = new javax.swing.JTextField();
-        TextGeenSeasonPriceChildrenSuit = new javax.swing.JTextField();
-        TextHighSeasonPriceChildrenSuit = new javax.swing.JTextField();
-        TextLowSeasonPriceChildrenSuit = new javax.swing.JTextField();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        TextGeenSeasonPriceAdultDouble = new javax.swing.JTextField();
-        TextHighSeasonPriceAdultDouble = new javax.swing.JTextField();
-        TextLowSeasonPriceAdultDouble = new javax.swing.JTextField();
-        TextGeenSeasonPriceChildrenDouble = new javax.swing.JTextField();
-        TextHighSeasonPriceChildrenDouble = new javax.swing.JTextField();
-        TextLowSeasonPriceChildrenDouble = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        TextGeenSeasonPriceAdultIndividual = new javax.swing.JTextField();
-        TextHighSeasonPriceAdultIndividual = new javax.swing.JTextField();
-        TextLowSeasonPriceAdultIndividual = new javax.swing.JTextField();
-        TextGeenSeasonPriceChildrenIndividual = new javax.swing.JTextField();
-        TextHighSeasonPriceChildrenIndividual = new javax.swing.JTextField();
-        TextLowSeasonPriceChildrenIndividual = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel50 = new javax.swing.JPanel();
@@ -160,6 +133,17 @@ public class StaffMain extends javax.swing.JFrame {
         TextCodeService = new javax.swing.JTextField();
         TextNameService = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        ComboBoxSeasons = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        ComboBoxRooms = new javax.swing.JComboBox();
+        jLabel29 = new javax.swing.JLabel();
+        TextFieldPriceOfRoom = new javax.swing.JTextField();
+        ButtonSaveSeason = new javax.swing.JButton();
+        DateChooserStartDate = new com.toedter.calendar.JDateChooser();
+        DateChooserDepartureDate = new com.toedter.calendar.JDateChooser();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         ButtonExitManage1 = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
 
@@ -211,26 +195,6 @@ public class StaffMain extends javax.swing.JFrame {
             }
         });
 
-        jLabel29.setText("Seasons");
-
-        jLabel38.setText("Adult Suit");
-
-        jLabel39.setText("Children Suit");
-
-        jLabel40.setText("Green Season  Price $");
-
-        jLabel41.setText("High season     Price $");
-
-        jLabel42.setText("Low season    Price $");
-
-        jLabel30.setText("Adult Double");
-
-        jLabel31.setText("Children Double");
-
-        jLabel37.setText("Adult Individual ");
-
-        jLabel43.setText("Children Individual ");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -238,108 +202,45 @@ public class StaffMain extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextHotelName, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                .addComponent(TextHotelAddress)
+                                .addComponent(TextHotelCountry)
+                                .addComponent(TextHotelPhoneNumber)
+                                .addComponent(TextHotelYearOfBuilding))
+                            .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(TextHotelName, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                                        .addComponent(TextHotelAddress)
-                                        .addComponent(TextHotelCountry)
-                                        .addComponent(TextHotelPhoneNumber)
-                                        .addComponent(TextHotelYearOfBuilding))
-                                    .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel29)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel9)
-                                                .addComponent(jLabel8)
-                                                .addComponent(jLabel11)
-                                                .addComponent(jLabel6))
-                                            .addGap(57, 57, 57)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(ComboBoxHotelHourOfCheckIn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(ComboBoxHotelKindOfLodging, 0, 200, Short.MAX_VALUE)
-                                                .addComponent(ComboBoxHotelHourOfCheckOut, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(ComboBoxHotelStars, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jScrollPane1)))))
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel6))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ComboBoxHotelHourOfCheckIn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelKindOfLodging, 0, 200, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelHourOfCheckOut, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelStars, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel38)
-                                    .addComponent(ButtonExit))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(483, 483, 483)
-                                        .addComponent(ButtonCreateHotel))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel39)
-                                            .addComponent(TextGeenSeasonPriceChildrenSuit, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(TextHighSeasonPriceChildrenSuit, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(TextLowSeasonPriceChildrenSuit, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(38, 38, 38)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel30)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel31))
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(TextLowSeasonPriceAdultDouble, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(TextLowSeasonPriceChildrenDouble, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(TextHighSeasonPriceAdultDouble, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(TextHighSeasonPriceChildrenDouble, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(TextGeenSeasonPriceAdultDouble, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(31, 31, 31)
-                                                    .addComponent(TextGeenSeasonPriceChildrenDouble, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel37)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(9, 9, 9)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(TextHighSeasonPriceAdultIndividual)
-                                                    .addComponent(TextGeenSeasonPriceAdultIndividual)
-                                                    .addComponent(TextLowSeasonPriceAdultIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel43))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(40, 40, 40)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(TextHighSeasonPriceChildrenIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(TextGeenSeasonPriceChildrenIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(TextLowSeasonPriceChildrenIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextGeenSeasonPriceAdultSuit, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                            .addComponent(TextHighSeasonPriceAdultSuit)
-                            .addComponent(TextLowSeasonPriceAdultSuit))))
+                        .addComponent(ButtonExit)
+                        .addGap(483, 483, 483)
+                        .addComponent(ButtonCreateHotel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -384,44 +285,7 @@ public class StaffMain extends javax.swing.JFrame {
                             .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel29)
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel39)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel37)
-                    .addComponent(jLabel43))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextGeenSeasonPriceAdultSuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextGeenSeasonPriceChildrenSuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel40)
-                    .addComponent(TextGeenSeasonPriceAdultDouble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextGeenSeasonPriceChildrenDouble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextGeenSeasonPriceAdultIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextGeenSeasonPriceChildrenIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextHighSeasonPriceAdultSuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextHighSeasonPriceChildrenSuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel41)
-                    .addComponent(TextHighSeasonPriceAdultDouble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextHighSeasonPriceChildrenDouble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextHighSeasonPriceAdultIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextHighSeasonPriceChildrenIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextLowSeasonPriceAdultSuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextLowSeasonPriceChildrenSuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42)
-                    .addComponent(TextLowSeasonPriceAdultDouble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextLowSeasonPriceChildrenDouble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextLowSeasonPriceAdultIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextLowSeasonPriceChildrenIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonCreateHotel)
                     .addComponent(ButtonExit))
@@ -739,6 +603,39 @@ public class StaffMain extends javax.swing.JFrame {
             }
         });
 
+        ComboBoxSeasons.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "High season (+25%)", "Low season (normal)", "Green season (-50%)" }));
+        ComboBoxSeasons.setEnabled(false);
+
+        jButton1.setText("Add seasons");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        ComboBoxRooms.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suit", "Double", "Individual" }));
+        ComboBoxRooms.setEnabled(false);
+
+        jLabel29.setText("Price $");
+
+        TextFieldPriceOfRoom.setEnabled(false);
+
+        ButtonSaveSeason.setText("Save");
+        ButtonSaveSeason.setEnabled(false);
+        ButtonSaveSeason.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSaveSeasonActionPerformed(evt);
+            }
+        });
+
+        DateChooserStartDate.setEnabled(false);
+
+        DateChooserDepartureDate.setEnabled(false);
+
+        jLabel30.setText("Start date ");
+
+        jLabel31.setText("Departure date");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -784,43 +681,62 @@ public class StaffMain extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addGap(95, 95, 95))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(233, 233, 233)
-                                .addComponent(ButtonSaveAttractio))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addGap(95, 95, 95))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel26)
-                                    .addComponent(jLabel24))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextCodeAttraction, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(TextNameAttraction))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(ButtonSaveService)
+                                    .addComponent(ButtonSaveAttractio)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jButton5)
+                                .addGap(96, 96, 96))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel28))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextNameService, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                            .addComponent(TextCodeAttraction)
+                            .addComponent(TextNameAttraction)
+                            .addComponent(TextCodeService))
+                        .addGap(24, 24, 24)))
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ButtonSaveService)
-                        .addContainerGap())
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(ButtonSaveSeason)
+                                .addGap(21, 21, 21))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(31, 31, 31)
+                                .addComponent(TextFieldPriceOfRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(81, 81, 81))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                        .addComponent(jButton5)
-                        .addContainerGap(22, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel27))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextCodeService)
-                            .addComponent(TextNameService, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ComboBoxSeasons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel31))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DateChooserDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComboBoxRooms, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DateChooserStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(27, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -830,54 +746,39 @@ public class StaffMain extends javax.swing.JFrame {
                     .addComponent(jSeparator5)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jButton3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel32)
-                                        .addComponent(TextRoomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(ComboBoxKindOfRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel33))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(TextMaxOfPeople, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel34))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(TextSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel35))
-                                    .addGap(9, 9, 9)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel36)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(RadioButtonSeaView)
-                                        .addComponent(RadioButtonAllInclude))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(RadioButtonSmoke)
-                                        .addComponent(RadioButtonTerrace))
-                                    .addGap(32, 32, 32)
-                                    .addComponent(ButtonSaveRoom))
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jButton5)
-                                    .addGap(26, 26, 26)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel27)
-                                        .addComponent(TextCodeService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel28)
-                                        .addComponent(TextNameService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(ButtonSaveAttractio)
-                                        .addComponent(ButtonSaveService))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel32)
+                                    .addComponent(TextRoomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ComboBoxKindOfRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel33))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TextMaxOfPeople, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel34))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TextSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel35))
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(RadioButtonSeaView)
+                                    .addComponent(RadioButtonAllInclude))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(RadioButtonSmoke)
+                                    .addComponent(RadioButtonTerrace))
+                                .addGap(32, 32, 32)
+                                .addComponent(ButtonSaveRoom))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addGap(29, 29, 29)
@@ -887,8 +788,45 @@ public class StaffMain extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel26)
-                                    .addComponent(TextNameAttraction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 11, Short.MAX_VALUE))))
+                                    .addComponent(TextNameAttraction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(ButtonSaveAttractio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel27)
+                                    .addComponent(TextCodeService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TextNameService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel28))
+                                .addGap(28, 28, 28)
+                                .addComponent(ButtonSaveService)))
+                        .addGap(0, 16, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ComboBoxSeasons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxRooms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DateChooserStartDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel31)
+                            .addComponent(DateChooserDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextFieldPriceOfRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29))
+                        .addGap(57, 57, 57)
+                        .addComponent(ButtonSaveSeason)
+                        .addContainerGap())))
         );
 
         ButtonExitManage1.setText("Exit");
@@ -910,11 +848,9 @@ public class StaffMain extends javax.swing.JFrame {
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ComboBoxListHotels, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(530, Short.MAX_VALUE))
+                        .addContainerGap(539, Short.MAX_VALUE))
                     .addComponent(jSeparator7)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(ButtonExitManage1)
@@ -932,7 +868,7 @@ public class StaffMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 11, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonExitManage1)
                 .addGap(4, 4, 4))
@@ -953,107 +889,37 @@ public class StaffMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void defaultHotels(){
-    GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest", "Quesada", "Costa Rica", 24608127, 5,"Mountain", "7 am", "7 pm", "nothing", 5, 1996));
-    GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest2", "San Ramon", "Costa Rica", 24608128, 5,"City", "7 am", "7 pm", "nothing", 5, 1995));
-}
-
-       
-    public void setHotels(){
-        ComboBoxListHotels.removeAllItems();
-        ComboBoxListHotels1.removeAllItems();
-        
-        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();  
-        for (int i = 0; i < hotels.size(); i++) {
-            ComboBoxListHotels.addItem(hotels.get(i).getName());
-            ComboBoxListHotels1.addItem(hotels.get(i).getName());
-      
-        }
-    }
-
-    
-    public void cleanInfo(){
-        TextHotelName.setText(null);
-        TextHotelAddress.setText(null);
-        TextHotelCountry.setText(null);
-        TextHotelPhoneNumber.setText(null);
-        TextPaneHotelRequirementsForCheckIn.setText(null);
-        TextHotelSize.setText(null);
-        TextHotelYearOfBuilding.setText(null);
- 
-    }
-    
-    public void cleanInfoManage(){
-        TextHotelNameManage.setText(null);
-        TextHotelAddressManage.setText(null);
-        TextHotelCountryManage.setText(null);
-        TextHotelPhoneNumberManage.setText(null);
-        TextPaneHotelRequirementsForCheckInManage.setText(null);
-        TextHotelSizeManage.setText(null);
-        TextHotelYearOfBuildingManage.setText(null);
-     
-    }
-    private void ButtonSaveManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveManageActionPerformed
- 
-        if(TextHotelNameManage.getText().isEmpty() || TextHotelAddressManage.getText().isEmpty()
-           || TextHotelCountryManage.getText().isEmpty() ||TextHotelPhoneNumberManage.getText().isEmpty()
-           || TextHotelSizeManage.getText().isEmpty() || TextHotelYearOfBuildingManage.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(this, "Please complete all text fields");
-            return;
-        }
-
-        String name = TextHotelNameManage.getText();
-        String address = TextHotelAddressManage.getText();
-        String country = TextHotelCountryManage.getText();
-        int phoneNumber = 0;
-        int size =0;
-        int yearOfBuilding =0;
-        try {
-            phoneNumber = Integer.parseInt(TextHotelPhoneNumberManage.getText());
-            size = Integer.parseInt(TextHotelSizeManage.getText());
-            yearOfBuilding = Integer.parseInt(TextHotelYearOfBuildingManage.getText());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Please enter just numbers in Phone Number, size and Year Of Building");
-            return;
-        }
-        int numberStars = Integer.parseInt(ComboBoxHotelStarsManage.getSelectedItem().toString());
-        String kindOfLodging = ComboBoxHotelKindOfLodgingManage.getSelectedItem().toString();
-        String hourOfCheckIn = ComboBoxHotelHourOfCheckInManage.getSelectedItem().toString();
-        String hourOfCheckout  = ComboBoxHotelHourOfCheckOutManage.getSelectedItem().toString();
-        String requirements = TextPaneHotelRequirementsForCheckInManage.getText();
-    
-        
-        GlobalVariables.getInstance().hotelList.add(new Hotel(name, address, country, phoneNumber, numberStars, kindOfLodging, hourOfCheckIn, hourOfCheckout, requirements, size, yearOfBuilding));
-        GlobalVariables.getInstance().deleteHotel(originalName);
-
-        JOptionPane.showMessageDialog(this, "The hotel has been modified");
-        cleanInfoManage();
-        setHotels();
-    }//GEN-LAST:event_ButtonSaveManageActionPerformed
-
-    private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
-        
-        if(JOptionPane.showConfirmDialog(this, "Do you want continue with deleting of '"+ComboBoxListHotels1.getSelectedItem().toString()+"' Hotel") !=0){
-            return;
-        }
-        GlobalVariables.getInstance().deleteHotel(ComboBoxListHotels1.getSelectedItem().toString());
-        cleanInfoManage();
-        JOptionPane.showMessageDialog(this,"The hotel has been cleared");
-        setHotels();
-    }//GEN-LAST:event_ButtonDeleteActionPerformed
-
-    private void ButtonExitManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExitManageActionPerformed
-        LogInmMenu logInMenu = new LogInmMenu();
-        logInMenu.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_ButtonExitManageActionPerformed
 
     private void ButtonExitManage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExitManage1ActionPerformed
         LogInmMenu logInMenu = new LogInmMenu();
         logInMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ButtonExitManage1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        TextRoomNumber.setEnabled(true);
+        TextMaxOfPeople.setEnabled(true);
+        ComboBoxKindOfRoom.setEnabled(true);
+        TextSize.setEnabled(true);
+        TextPaneDescription.setEnabled(true);
+        RadioButtonAllInclude.setEnabled(true);
+        RadioButtonSeaView.setEnabled(true);
+        RadioButtonSmoke.setEnabled(true);
+        RadioButtonTerrace.setEnabled(true);
+        ButtonSaveRoom.setEnabled(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        TextCodeService.setEnabled(true);
+        TextNameService.setEnabled(true);
+        ButtonSaveService.setEnabled(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        TextCodeAttraction.setEnabled(true);
+        TextNameAttraction.setEnabled(true);
+        ButtonSaveAttractio.setEnabled(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void RadioButtonAllIncludeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioButtonAllIncludeMouseClicked
         if(RadioButtonAllInclude.isSelected()){
@@ -1068,17 +934,86 @@ public void defaultHotels(){
         }
     }//GEN-LAST:event_RadioButtonAllIncludeMouseClicked
 
-    private void ButtonSaveRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveRoomActionPerformed
-       
-         if(TextRoomNumber.getText().isEmpty() || TextMaxOfPeople.getText().isEmpty()
-           || TextSize.getText().isEmpty() ||TextPaneDescription.getText().isEmpty() ){
-            
+    private void ButtonSaveServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveServiceActionPerformed
+        if(TextCodeService.getText().isEmpty() || TextNameService.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please complete all text fields");
             return;
         }
-        
-        
-        
+
+        String code = TextCodeService.getText().toString();
+        String name = TextNameService.getText().toString();
+
+        String hotel = ComboBoxListHotels.getSelectedItem().toString();
+        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
+        ArrayList<Service> services = null;
+        for (int i = 0; i < hotels.size(); i++) {
+            if(hotels.get(i).getName().equals(hotel)) {
+                services = hotels.get(i).getServiceList();
+                for (int j = 0; j < services.size(); j++) {
+                    if(services.get(j).getCode().equals(code)){
+                        JOptionPane.showMessageDialog(this, "The service code already exists");
+                        return;
+                    }
+                }
+                Service service = new Service(code, name);
+                GlobalVariables.getInstance().addServicesToHotel(i, service);
+                JOptionPane.showMessageDialog(this, "Service was added");
+                break;
+            }
+        }
+        TextCodeService.setEnabled(false);
+        TextNameService.setEnabled(false);
+        ButtonSaveService.setEnabled(false);
+        TextCodeService.setText(null);
+        TextNameService.setText(null);
+
+    }//GEN-LAST:event_ButtonSaveServiceActionPerformed
+
+    private void ButtonSaveAttractioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveAttractioActionPerformed
+
+        if(TextCodeAttraction.getText().isEmpty() || TextNameAttraction.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please complete all text fields");
+            return;
+        }
+
+        String code = TextCodeAttraction.getText().toString();
+        String name = TextNameAttraction.getText().toString();
+
+        String hotel = ComboBoxListHotels.getSelectedItem().toString();
+        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
+        ArrayList<Attraction> attractions = null;
+        for (int i = 0; i < hotels.size(); i++) {
+            if(hotels.get(i).getName().equals(hotel)) {
+                attractions = hotels.get(i).getAttractionList();
+                for (int j = 0; j < attractions.size(); j++) {
+                    if(attractions.get(j).getCode().equals(code)){
+                        JOptionPane.showMessageDialog(this, "The attraction code already exists");
+                        return;
+                    }
+                }
+                Attraction attraction = new Attraction(code, name);
+                GlobalVariables.getInstance().addAttractionToHotel(i, attraction);
+                JOptionPane.showMessageDialog(this, "Attraction was added");
+                break;
+            }
+        }
+        TextCodeAttraction.setEnabled(false);
+        TextNameAttraction.setEnabled(false);
+        ButtonSaveAttractio.setEnabled(false);
+        TextCodeAttraction.setText(null);
+        TextNameAttraction.setText(null);
+
+    }//GEN-LAST:event_ButtonSaveAttractioActionPerformed
+
+    private void ButtonSaveRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveRoomActionPerformed
+
+        if(TextRoomNumber.getText().isEmpty() || TextMaxOfPeople.getText().isEmpty()
+            || TextSize.getText().isEmpty() ||TextPaneDescription.getText().isEmpty() ){
+
+            JOptionPane.showMessageDialog(this, "Please complete all text fields");
+            return;
+        }
+
         int roomNumber = Integer.parseInt(TextRoomNumber.getText());
         String KindOfRoom = ComboBoxKindOfRoom.getSelectedItem().toString();
         int maxPeople = Integer.parseInt(TextMaxOfPeople.getText());
@@ -1088,7 +1023,7 @@ public void defaultHotels(){
         boolean seaView = false;
         boolean smoke = false;
         boolean allIncluded = false;
-        
+
         if(RadioButtonAllInclude.isSelected()){
             terrace = true;
             seaView = true;
@@ -1141,105 +1076,8 @@ public void defaultHotels(){
         RadioButtonSeaView.setSelected(false);
         RadioButtonSmoke.setSelected(false);
         RadioButtonTerrace.setSelected(false);
-        
+
     }//GEN-LAST:event_ButtonSaveRoomActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        TextRoomNumber.setEnabled(true);
-        TextMaxOfPeople.setEnabled(true);
-        ComboBoxKindOfRoom.setEnabled(true);
-        TextSize.setEnabled(true);
-        TextPaneDescription.setEnabled(true);
-        RadioButtonAllInclude.setEnabled(true);
-        RadioButtonSeaView.setEnabled(true);
-        RadioButtonSmoke.setEnabled(true);
-        RadioButtonTerrace.setEnabled(true);
-        ButtonSaveRoom.setEnabled(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        TextCodeAttraction.setEnabled(true);
-        TextNameAttraction.setEnabled(true);
-        ButtonSaveAttractio.setEnabled(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void ButtonSaveAttractioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveAttractioActionPerformed
-        
-        if(TextCodeAttraction.getText().isEmpty() || TextNameAttraction.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please complete all text fields");
-            return;
-        }
-        
-        String code = TextCodeAttraction.getText().toString();
-        String name = TextNameAttraction.getText().toString();
-        
-        String hotel = ComboBoxListHotels.getSelectedItem().toString();
-        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
-        ArrayList<Attraction> attractions = null;
-        for (int i = 0; i < hotels.size(); i++) {
-            if(hotels.get(i).getName().equals(hotel)) {
-                attractions = hotels.get(i).getAttractionList();
-                for (int j = 0; j < attractions.size(); j++) {
-                    if(attractions.get(j).getCode().equals(code)){
-                        JOptionPane.showMessageDialog(this, "The attraction code already exists");
-                        return;
-                    }
-                }
-                Attraction attraction = new Attraction(code, name);
-                GlobalVariables.getInstance().addAttractionToHotel(i, attraction);
-                JOptionPane.showMessageDialog(this, "Attraction was added");
-                break;
-            }
-        }
-        TextCodeAttraction.setEnabled(false);
-        TextNameAttraction.setEnabled(false);
-        ButtonSaveAttractio.setEnabled(false);
-        TextCodeAttraction.setText(null);
-        TextNameAttraction.setText(null);
-       
-    }//GEN-LAST:event_ButtonSaveAttractioActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        TextCodeService.setEnabled(true);
-        TextNameService.setEnabled(true);
-        ButtonSaveService.setEnabled(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void ButtonSaveServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveServiceActionPerformed
-        if(TextCodeService.getText().isEmpty() || TextNameService.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please complete all text fields");
-            return;
-        }
-        
-        String code = TextCodeService.getText().toString();
-        String name = TextNameService.getText().toString();
-        
-        String hotel = ComboBoxListHotels.getSelectedItem().toString();
-        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
-        ArrayList<Service> services = null;
-        for (int i = 0; i < hotels.size(); i++) {
-            if(hotels.get(i).getName().equals(hotel)) {
-                services = hotels.get(i).getServiceList();
-                for (int j = 0; j < services.size(); j++) {
-                    if(services.get(j).getCode().equals(code)){
-                        JOptionPane.showMessageDialog(this, "The service code already exists");
-                        return;
-                    }
-                }
-                Service service = new Service(code, name);
-                GlobalVariables.getInstance().addServicesToHotel(i, service);
-                JOptionPane.showMessageDialog(this, "Service was added");
-                break;
-            }
-        }
-        TextCodeService.setEnabled(false);
-        TextNameService.setEnabled(false);
-        ButtonSaveService.setEnabled(false);
-        TextCodeService.setText(null);
-        TextNameService.setText(null);
-        
-        
-    }//GEN-LAST:event_ButtonSaveServiceActionPerformed
 
     private void ButtonLoadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLoadDataActionPerformed
         originalName = ComboBoxListHotels1.getSelectedItem().toString();
@@ -1247,7 +1085,7 @@ public void defaultHotels(){
 
         for (int i = 0; i < hotels.size(); i++) {
             if(hotels.get(i).getName().equals(originalName)){
-                
+
                 TextHotelNameManage.setText(hotels.get(i).getName());
                 TextHotelAddressManage.setText(hotels.get(i).getAddress());
                 TextHotelCountryManage.setText(hotels.get(i).getCountry());
@@ -1284,6 +1122,61 @@ public void defaultHotels(){
             }
         }
     }//GEN-LAST:event_ButtonLoadDataActionPerformed
+
+    private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
+
+        if(JOptionPane.showConfirmDialog(this, "Do you want continue with deleting of '"+ComboBoxListHotels1.getSelectedItem().toString()+"' Hotel") !=0){
+            return;
+        }
+        GlobalVariables.getInstance().deleteHotel(ComboBoxListHotels1.getSelectedItem().toString());
+        cleanInfoManage();
+        JOptionPane.showMessageDialog(this,"The hotel has been cleared");
+        setHotels();
+    }//GEN-LAST:event_ButtonDeleteActionPerformed
+
+    private void ButtonSaveManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveManageActionPerformed
+
+        if(TextHotelNameManage.getText().isEmpty() || TextHotelAddressManage.getText().isEmpty()
+            || TextHotelCountryManage.getText().isEmpty() ||TextHotelPhoneNumberManage.getText().isEmpty()
+            || TextHotelSizeManage.getText().isEmpty() || TextHotelYearOfBuildingManage.getText().isEmpty()){
+
+            JOptionPane.showMessageDialog(this, "Please complete all text fields");
+            return;
+        }
+
+        String name = TextHotelNameManage.getText();
+        String address = TextHotelAddressManage.getText();
+        String country = TextHotelCountryManage.getText();
+        int phoneNumber = 0;
+        int size =0;
+        int yearOfBuilding =0;
+        try {
+            phoneNumber = Integer.parseInt(TextHotelPhoneNumberManage.getText());
+            size = Integer.parseInt(TextHotelSizeManage.getText());
+            yearOfBuilding = Integer.parseInt(TextHotelYearOfBuildingManage.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Please enter just numbers in Phone Number, size and Year Of Building");
+            return;
+        }
+        int numberStars = Integer.parseInt(ComboBoxHotelStarsManage.getSelectedItem().toString());
+        String kindOfLodging = ComboBoxHotelKindOfLodgingManage.getSelectedItem().toString();
+        String hourOfCheckIn = ComboBoxHotelHourOfCheckInManage.getSelectedItem().toString();
+        String hourOfCheckout  = ComboBoxHotelHourOfCheckOutManage.getSelectedItem().toString();
+        String requirements = TextPaneHotelRequirementsForCheckInManage.getText();
+
+        GlobalVariables.getInstance().hotelList.add(new Hotel(name, address, country, phoneNumber, numberStars, kindOfLodging, hourOfCheckIn, hourOfCheckout, requirements, size, yearOfBuilding));
+        GlobalVariables.getInstance().deleteHotel(originalName);
+
+        JOptionPane.showMessageDialog(this, "The hotel has been modified");
+        cleanInfoManage();
+        setHotels();
+    }//GEN-LAST:event_ButtonSaveManageActionPerformed
+
+    private void ButtonExitManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExitManageActionPerformed
+        LogInmMenu logInMenu = new LogInmMenu();
+        logInMenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ButtonExitManageActionPerformed
 
     private void ButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExitActionPerformed
         LogInmMenu logInMenu = new LogInmMenu();
@@ -1327,6 +1220,130 @@ public void defaultHotels(){
         setHotels();
     }//GEN-LAST:event_ButtonCreateHotelActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       ComboBoxSeasons.setEnabled(true);
+       ComboBoxRooms.setEnabled(true);
+       TextFieldPriceOfRoom.setEnabled(true);
+       ButtonSaveSeason.setEnabled(true);
+       DateChooserStartDate.setEnabled(true);
+       DateChooserDepartureDate.setEnabled(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ButtonSaveSeasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveSeasonActionPerformed
+        if(TextFieldPriceOfRoom.getText().toString().isEmpty() || DateChooserDepartureDate.getDate().toString().isEmpty() || DateChooserStartDate.getDate().toString().isEmpty()  ){
+            JOptionPane.showMessageDialog(this,"Please complete all text fields");
+            return;
+        }
+        String hotel= ComboBoxListHotels.getSelectedItem().toString();
+        String startDate = DateChooserStartDate.getDate().toString();
+        String departureDate = DateChooserDepartureDate.getDate().toString();
+        String room = ComboBoxRooms.getSelectedItem().toString();
+        String season ;
+        String codeNewSeason;
+        
+        if(ComboBoxSeasons.getSelectedIndex() == 0 ){
+            season = "High season";
+            
+            if(ComboBoxRooms.getSelectedIndex() == 0){
+                codeNewSeason = "s1";
+            }else if(ComboBoxRooms.getSelectedIndex() == 1){
+                codeNewSeason = "s2";
+            }else{
+                codeNewSeason = "s3";
+            }
+
+        }else if(ComboBoxSeasons.getSelectedIndex() == 1){
+            season = "Low Season";
+            if(ComboBoxRooms.getSelectedIndex() == 0){
+                codeNewSeason = "d1";
+            }else if(ComboBoxRooms.getSelectedIndex() == 1){
+                codeNewSeason = "d2";
+            }else{
+                codeNewSeason = "d3";
+            }
+        }else{
+            season = "Green season";
+            if(ComboBoxRooms.getSelectedIndex() == 0){
+                codeNewSeason = "i1";
+            }else if(ComboBoxRooms.getSelectedIndex() == 1){
+                codeNewSeason = "i2";
+            }else{
+                codeNewSeason = "i3";
+            }
+        }
+        
+        
+        int price = 0;
+        try {
+            price = Integer.parseInt(TextFieldPriceOfRoom.getText().toString());
+ 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter just numbers in 'Price $'");
+        }
+        
+        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
+        ArrayList<Season> seasons = null;
+        for (int i = 0; i < hotels.size(); i++) {
+            if(hotels.get(i).getName().equals(hotel)) {
+                seasons = hotels.get(i).getSeasonList();
+                for (int j = 0; j < seasons.size(); j++) {
+                    if(seasons.get(j).getCode().equals(codeNewSeason)  && seasons.get(j).getTypeRoom().equals(room)){
+                        JOptionPane.showMessageDialog(this, "The season code already exists");
+                        return;
+                    }
+                }
+                Season newSeason = new Season(season, codeNewSeason, startDate, departureDate, price, room);
+                GlobalVariables.getInstance().addSeasonsToHotel(i, newSeason);
+                JOptionPane.showMessageDialog(this, "Season was added");
+                break;
+            }
+        }
+        
+        
+        
+       TextFieldPriceOfRoom.setText(null);
+
+    }//GEN-LAST:event_ButtonSaveSeasonActionPerformed
+public void defaultHotels(){
+    GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest", "Quesada", "Costa Rica", 24608127, 5,"Mountain", "7 am", "7 pm", "nothing", 5, 1996));
+    GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest2", "San Ramon", "Costa Rica", 24608128, 5,"City", "7 am", "7 pm", "nothing", 5, 1995));
+}
+
+       
+    public void setHotels(){
+        ComboBoxListHotels.removeAllItems();
+        ComboBoxListHotels1.removeAllItems();
+        
+        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();  
+        for (int i = 0; i < hotels.size(); i++) {
+            ComboBoxListHotels.addItem(hotels.get(i).getName());
+            ComboBoxListHotels1.addItem(hotels.get(i).getName());
+      
+        }
+    }
+
+    
+    public void cleanInfo(){
+        TextHotelName.setText(null);
+        TextHotelAddress.setText(null);
+        TextHotelCountry.setText(null);
+        TextHotelPhoneNumber.setText(null);
+        TextPaneHotelRequirementsForCheckIn.setText(null);
+        TextHotelSize.setText(null);
+        TextHotelYearOfBuilding.setText(null);
+ 
+    }
+    
+    public void cleanInfoManage(){
+        TextHotelNameManage.setText(null);
+        TextHotelAddressManage.setText(null);
+        TextHotelCountryManage.setText(null);
+        TextHotelPhoneNumberManage.setText(null);
+        TextPaneHotelRequirementsForCheckInManage.setText(null);
+        TextHotelSizeManage.setText(null);
+        TextHotelYearOfBuildingManage.setText(null);
+     
+    }
     /**
      * @param args the command line arguments
      */
@@ -1372,6 +1389,7 @@ public void defaultHotels(){
     private javax.swing.JButton ButtonSaveAttractio;
     private javax.swing.JButton ButtonSaveManage;
     private javax.swing.JButton ButtonSaveRoom;
+    private javax.swing.JButton ButtonSaveSeason;
     private javax.swing.JButton ButtonSaveService;
     private javax.swing.JComboBox ComboBoxHotelHourOfCheckIn;
     private javax.swing.JComboBox ComboBoxHotelHourOfCheckInManage;
@@ -1384,24 +1402,17 @@ public void defaultHotels(){
     private javax.swing.JComboBox ComboBoxKindOfRoom;
     private javax.swing.JComboBox ComboBoxListHotels;
     private javax.swing.JComboBox ComboBoxListHotels1;
+    private javax.swing.JComboBox ComboBoxRooms;
+    private javax.swing.JComboBox ComboBoxSeasons;
+    private com.toedter.calendar.JDateChooser DateChooserDepartureDate;
+    private com.toedter.calendar.JDateChooser DateChooserStartDate;
     private javax.swing.JRadioButton RadioButtonAllInclude;
     private javax.swing.JRadioButton RadioButtonSeaView;
     private javax.swing.JRadioButton RadioButtonSmoke;
     private javax.swing.JRadioButton RadioButtonTerrace;
     private javax.swing.JTextField TextCodeAttraction;
     private javax.swing.JTextField TextCodeService;
-    private javax.swing.JTextField TextGeenSeasonPriceAdultDouble;
-    private javax.swing.JTextField TextGeenSeasonPriceAdultIndividual;
-    private javax.swing.JTextField TextGeenSeasonPriceAdultSuit;
-    private javax.swing.JTextField TextGeenSeasonPriceChildrenDouble;
-    private javax.swing.JTextField TextGeenSeasonPriceChildrenIndividual;
-    private javax.swing.JTextField TextGeenSeasonPriceChildrenSuit;
-    private javax.swing.JTextField TextHighSeasonPriceAdultDouble;
-    private javax.swing.JTextField TextHighSeasonPriceAdultIndividual;
-    private javax.swing.JTextField TextHighSeasonPriceAdultSuit;
-    private javax.swing.JTextField TextHighSeasonPriceChildrenDouble;
-    private javax.swing.JTextField TextHighSeasonPriceChildrenIndividual;
-    private javax.swing.JTextField TextHighSeasonPriceChildrenSuit;
+    private javax.swing.JTextField TextFieldPriceOfRoom;
     private javax.swing.JTextField TextHotelAddress;
     private javax.swing.JTextField TextHotelAddressManage;
     private javax.swing.JTextField TextHotelCountry;
@@ -1414,12 +1425,6 @@ public void defaultHotels(){
     private javax.swing.JTextField TextHotelSizeManage;
     private javax.swing.JTextField TextHotelYearOfBuilding;
     private javax.swing.JTextField TextHotelYearOfBuildingManage;
-    private javax.swing.JTextField TextLowSeasonPriceAdultDouble;
-    private javax.swing.JTextField TextLowSeasonPriceAdultIndividual;
-    private javax.swing.JTextField TextLowSeasonPriceAdultSuit;
-    private javax.swing.JTextField TextLowSeasonPriceChildrenDouble;
-    private javax.swing.JTextField TextLowSeasonPriceChildrenIndividual;
-    private javax.swing.JTextField TextLowSeasonPriceChildrenSuit;
     private javax.swing.JTextField TextMaxOfPeople;
     private javax.swing.JTextField TextNameAttraction;
     private javax.swing.JTextField TextNameService;
@@ -1429,6 +1434,7 @@ public void defaultHotels(){
     private javax.swing.JTextField TextRoomNumber;
     private javax.swing.JTextField TextSize;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1462,14 +1468,7 @@ public void defaultHotels(){
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1484,6 +1483,7 @@ public void defaultHotels(){
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;

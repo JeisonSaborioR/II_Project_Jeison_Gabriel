@@ -7,7 +7,7 @@ public class Season {
     private String code;
     private String startDate;
     private String finalDate;
-    private int amount;
+    private int amount;  
     private String typeRoom;
 
     public Season(String name, String code, String startDate, String finalDate, int amount, String typeRoom) {
