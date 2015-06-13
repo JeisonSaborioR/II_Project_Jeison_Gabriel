@@ -65,4 +65,7 @@ public class GlobalVariables {
     public void addSeasonsToHotel(int hotel, Season season ){
         this.hotelList.get(hotel).getSeasonList().add(season);
     }
+    public void addImagesToHotel(int hotel, String image ){
+        this.hotelList.get(hotel).getPhotos().add(image);
+    }
 }
