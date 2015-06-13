@@ -90,14 +90,6 @@ public class Hotel {
         this.country = country;
     }
 
-    public int getCellPhone() {
-        return phoneNumber;
-    }
-
-    public void setCellPhone(int cellPhone) {
-        this.phoneNumber = cellPhone;
-    }
-
     public int getNumberStars() {
         return numberStars;
     }

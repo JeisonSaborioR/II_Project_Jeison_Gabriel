@@ -10,4 +10,5 @@ public class PassWordException extends Exception {
     public  PassWordException(){
         super("Characters out of range (min 6 letters and a number, max 20 characters)");
     }
+    
 }

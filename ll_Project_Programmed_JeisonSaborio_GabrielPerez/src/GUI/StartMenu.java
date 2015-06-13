@@ -8,16 +8,21 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Calendar; 
+import com.mxrck.autocompleter.TextAutoCompleter;
+import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
+import java.util.ArrayList;
 
 
-
-public class StartMenu extends javax.swing.JFrame {
-
+public final class StartMenu extends javax.swing.JFrame {
+    TextAutoCompleter textAutoAcompleter;
     DateFormat dateFormat = DateFormat.getDateTimeInstance();
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    ArrayList<String> listDescription = new ArrayList<>();
     
     public StartMenu() {
-        initComponents();
+        initComponents();      	
+        textAutoAcompleter = new TextAutoCompleter( TxtSearchHotel );
+        loadNameHotel();
     }
 
     /**
@@ -38,8 +43,6 @@ public class StartMenu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         TxtNights = new javax.swing.JTextField();
-        LabDateCheckIn = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         PanelHabitacion1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -79,10 +82,6 @@ public class StartMenu extends javax.swing.JFrame {
         jLabel5.setText("Check-Out");
 
         jLabel7.setText("Nights");
-
-        LabDateCheckIn.setText("jLabel8");
-
-        jLabel9.setText("jLabel9");
 
         PanelHabitacion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -161,6 +160,11 @@ public class StartMenu extends javax.swing.JFrame {
                 DateCheckInMouseClicked(evt);
             }
         });
+        DateCheckIn.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DateCheckInPropertyChange(evt);
+            }
+        });
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -182,16 +186,12 @@ public class StartMenu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabDateCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(DateCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(DateCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel4)
+                                    .addComponent(DateCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(DateCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtNights, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,10 +231,7 @@ public class StartMenu extends javax.swing.JFrame {
                             .addComponent(TxtNights, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DateCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabDateCheckIn)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
                     .addComponent(DateCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(PanelHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,6 +245,37 @@ public class StartMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+ 
+    public void loadNameHotel(){
+       
+        for(int i = 0; i < GlobalVariables.getInstance().hotelList.size();i++){
+            boolean response1 = validarList(GlobalVariables.getInstance().hotelList.get(i).getName());
+            if(response1 == false){
+                listDescription.add(GlobalVariables.getInstance().hotelList.get(i).getName());
+               
+            }
+            boolean response2 = validarList(GlobalVariables.getInstance().hotelList.get(i).getAddress());
+            if(response2 == false){
+                listDescription.add(GlobalVariables.getInstance().hotelList.get(i).getAddress());
+            }     
+        }
+        for(int j = 0; j < listDescription.size();j++){
+            textAutoAcompleter.addItem(listDescription.get(j));
+        }
+    }
+
+    public boolean validarList(String description){
+        if(listDescription.isEmpty()){
+            return false;
+        }
+        for(int j = 0; j < listDescription.size();j++){
+            if(listDescription.get(j).equals(description)){
+                return true;
+            }
+        }
+        return false;
+    }
     private void CobRoomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CobRoomsMouseClicked
         // TODO add your handling code here:
         int pos = CobRooms.getSelectedIndex();
@@ -268,19 +296,6 @@ public class StartMenu extends javax.swing.JFrame {
 
     private void DateCheckInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DateCheckInMouseClicked
         // TODO add your handling code here:
-       /* System.out.println("Estoy vacio");
-        Date fecha = null;
-        String checkInDate = dateFormat.format(TxtDateCheckIn.getDate());
-        try {
-            fecha = formato.parse(checkInDate);
-        } catch (ParseException ex) {
-            Logger.getLogger(StartMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        GregorianCalendar c = new GregorianCalendar();
-        c.setTime(fecha);
-        System.out.println(c.get(Calendar.DAY_OF_WEEK));
-        System.out.println(c.get(Calendar.DAY_OF_WEEK));
-        //LabDateCheckIn.setText(c.get(Calendar.DAY_OF_WEEK));*/
     }//GEN-LAST:event_DateCheckInMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -294,9 +309,18 @@ public class StartMenu extends javax.swing.JFrame {
         }
         GregorianCalendar c = new GregorianCalendar();
         c.setTime(fecha);
-        System.out.println(c.get(Calendar.DAY_OF_WEEK));
-        System.out.println(c.get(Calendar.DAY_OF_WEEK));
+        SearchResultsMenu searchResultsMenu = new SearchResultsMenu();
+        searchResultsMenu.loardHotel(textAutoAcompleter.getItemSelected().toString());
+        searchResultsMenu.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void DateCheckInPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateCheckInPropertyChange
+        // TODO add your handling code here:
+     
+   
+    }//GEN-LAST:event_DateCheckInPropertyChange
 
     /**
      * @param args the command line arguments
@@ -340,7 +364,6 @@ public class StartMenu extends javax.swing.JFrame {
     private javax.swing.JComboBox CobRooms;
     private com.toedter.calendar.JDateChooser DateCheckIn;
     private com.toedter.calendar.JDateChooser DateCheckOut;
-    private javax.swing.JLabel LabDateCheckIn;
     private javax.swing.JPanel PanelHabitacion1;
     private javax.swing.JTextField TxtNights;
     private javax.swing.JTextField TxtSearchHotel;
@@ -356,7 +379,6 @@ public class StartMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables

@@ -25,6 +25,9 @@ public class Ll_Project_Programmed_JeisonSaborio_GabrielPerez {
         for(int i = 0; i < GlobalVariables.getInstance().peopleList.size(); i++){
             System.out.println(GlobalVariables.getInstance().peopleList.get(i).getType());
         }
+        SystemData systemData = new SystemData();
+        systemData.defaultData();
+        
     }
     
 }

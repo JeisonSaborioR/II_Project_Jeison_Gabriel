@@ -466,6 +466,7 @@ public class RegisterMenu extends javax.swing.JFrame {
         LogInmMenu logInmMenu = new LogInmMenu();
         logInmMenu.setVisible(true);
         this.setVisible(false);
+
     }
     private void RadCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadCustomerActionPerformed
         // TODO add your handling code here:

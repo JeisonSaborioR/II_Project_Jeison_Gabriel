@@ -57,19 +57,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="LabDateCheckIn" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="DateCheckIn" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
-                                          <Component id="DateCheckOut" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DateCheckIn" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DateCheckOut" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -121,11 +115,7 @@
                           <Component id="DateCheckIn" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LabDateCheckIn" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="DateCheckOut" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -165,16 +155,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtNights">
-    </Component>
-    <Component class="javax.swing.JLabel" name="LabDateCheckIn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel8"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel9"/>
-      </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="PanelHabitacion1">
       <Properties>
@@ -311,6 +291,7 @@
     <Component class="com.toedter.calendar.JDateChooser" name="DateCheckIn">
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DateCheckInMouseClicked"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="DateCheckInPropertyChange"/>
       </Events>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="DateCheckOut">

@@ -19,12 +19,12 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.TypeRoom;
  *
  * @author Jeison
  */
-public class StaffMain extends javax.swing.JFrame {
+public final class StaffMain extends javax.swing.JFrame {
 
     String originalName;
     public StaffMain() {
         initComponents();
-        defaultHotels();
+    
         setHotels();
     }
 
@@ -39,32 +39,6 @@ public class StaffMain extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        TextHotelName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        TextHotelAddress = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        TextHotelCountry = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        TextHotelPhoneNumber = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        TextHotelYearOfBuilding = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        ComboBoxHotelKindOfLodging = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        TextHotelSize = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TextPaneHotelRequirementsForCheckIn = new javax.swing.JTextPane();
-        jLabel11 = new javax.swing.JLabel();
-        ComboBoxHotelStars = new javax.swing.JComboBox();
-        ComboBoxHotelHourOfCheckIn = new javax.swing.JComboBox();
-        ComboBoxHotelHourOfCheckOut = new javax.swing.JComboBox();
-        ButtonCreateHotel = new javax.swing.JButton();
-        ButtonExit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel50 = new javax.swing.JPanel();
@@ -146,153 +120,34 @@ public class StaffMain extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         ButtonExitManage1 = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        TextHotelName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        TextHotelAddress = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        TextHotelCountry = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        TextHotelPhoneNumber = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        TextHotelYearOfBuilding = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        ComboBoxHotelKindOfLodging = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        TextHotelSize = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TextPaneHotelRequirementsForCheckIn = new javax.swing.JTextPane();
+        jLabel11 = new javax.swing.JLabel();
+        ComboBoxHotelStars = new javax.swing.JComboBox();
+        ComboBoxHotelHourOfCheckIn = new javax.swing.JComboBox();
+        ComboBoxHotelHourOfCheckOut = new javax.swing.JComboBox();
+        ButtonCreateHotel = new javax.swing.JButton();
+        ButtonExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Hotel name");
-
-        jLabel2.setText("Address ");
-
-        jLabel3.setText("Country");
-
-        jLabel4.setText("Phone number");
-
-        jLabel5.setText("Year of building");
-
-        jLabel6.setText("kind of lodging");
-
-        ComboBoxHotelKindOfLodging.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mountain", "Beach", "City" }));
-
-        jLabel7.setText("Size");
-
-        jLabel8.setText("Hour of Check in");
-
-        jLabel9.setText("Hour of Check out");
-
-        jLabel10.setText("Requirements for check in");
-
-        jScrollPane1.setViewportView(TextPaneHotelRequirementsForCheckIn);
-
-        jLabel11.setText("Stars");
-
-        ComboBoxHotelStars.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
-
-        ComboBoxHotelHourOfCheckIn.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 am", "8 am", "9 am" }));
-
-        ComboBoxHotelHourOfCheckOut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 pm", "8 pm", "9 pm" }));
-
-        ButtonCreateHotel.setText("Create");
-        ButtonCreateHotel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCreateHotelActionPerformed(evt);
-            }
-        });
-
-        ButtonExit.setText("Exit");
-        ButtonExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonExitActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextHotelName, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                                .addComponent(TextHotelAddress)
-                                .addComponent(TextHotelCountry)
-                                .addComponent(TextHotelPhoneNumber)
-                                .addComponent(TextHotelYearOfBuilding))
-                            .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel6))
-                                .addGap(57, 57, 57)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ComboBoxHotelHourOfCheckIn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComboBoxHotelKindOfLodging, 0, 200, Short.MAX_VALUE)
-                                    .addComponent(ComboBoxHotelHourOfCheckOut, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComboBoxHotelStars, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ButtonExit)
-                        .addGap(483, 483, 483)
-                        .addComponent(ButtonCreateHotel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(TextHotelName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(ComboBoxHotelHourOfCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(TextHotelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(ComboBoxHotelHourOfCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TextHotelCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)
-                        .addComponent(ComboBoxHotelKindOfLodging, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(ComboBoxHotelStars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TextHotelPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(TextHotelYearOfBuilding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonCreateHotel)
-                    .addComponent(ButtonExit))
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Add Hotel", jPanel1);
 
         jLabel12.setText("Select a hotel");
 
@@ -876,6 +731,151 @@ public class StaffMain extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Manage a Hotel", jPanel3);
 
+        jLabel1.setText("Hotel name");
+
+        jLabel2.setText("Address ");
+
+        jLabel3.setText("Country");
+
+        jLabel4.setText("Phone number");
+
+        jLabel5.setText("Year of building");
+
+        jLabel6.setText("kind of lodging");
+
+        ComboBoxHotelKindOfLodging.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mountain", "Beach", "City" }));
+
+        jLabel7.setText("Size");
+
+        jLabel8.setText("Hour of Check in");
+
+        jLabel9.setText("Hour of Check out");
+
+        jLabel10.setText("Requirements for check in");
+
+        jScrollPane1.setViewportView(TextPaneHotelRequirementsForCheckIn);
+
+        jLabel11.setText("Stars");
+
+        ComboBoxHotelStars.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
+
+        ComboBoxHotelHourOfCheckIn.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 am", "8 am", "9 am" }));
+
+        ComboBoxHotelHourOfCheckOut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7 pm", "8 pm", "9 pm" }));
+
+        ButtonCreateHotel.setText("Create");
+        ButtonCreateHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCreateHotelActionPerformed(evt);
+            }
+        });
+
+        ButtonExit.setText("Exit");
+        ButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonExitActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextHotelName, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                .addComponent(TextHotelAddress)
+                                .addComponent(TextHotelCountry)
+                                .addComponent(TextHotelPhoneNumber)
+                                .addComponent(TextHotelYearOfBuilding))
+                            .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel6))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ComboBoxHotelHourOfCheckIn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelKindOfLodging, 0, 200, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelHourOfCheckOut, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxHotelStars, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ButtonExit)
+                        .addGap(483, 483, 483)
+                        .addComponent(ButtonCreateHotel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(TextHotelName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(ComboBoxHotelHourOfCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(TextHotelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(ComboBoxHotelHourOfCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TextHotelCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(ComboBoxHotelKindOfLodging, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(ComboBoxHotelStars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TextHotelPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(TextHotelYearOfBuilding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TextHotelSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonCreateHotel)
+                    .addComponent(ButtonExit))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Add Hotel", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1304,12 +1304,7 @@ public class StaffMain extends javax.swing.JFrame {
        TextFieldPriceOfRoom.setText(null);
 
     }//GEN-LAST:event_ButtonSaveSeasonActionPerformed
-public void defaultHotels(){
-    GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest", "Quesada", "Costa Rica", 24608127, 5,"Mountain", "7 am", "7 pm", "nothing", 5, 1996));
-    GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest2", "San Ramon", "Costa Rica", 24608128, 5,"City", "7 am", "7 pm", "nothing", 5, 1995));
-}
-
-       
+      
     public void setHotels(){
         ComboBoxListHotels.removeAllItems();
         ComboBoxListHotels1.removeAllItems();

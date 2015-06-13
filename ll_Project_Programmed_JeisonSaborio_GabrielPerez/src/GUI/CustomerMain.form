@@ -24,18 +24,35 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
               <Component id="BtoBack" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="185" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButton2" pref="0" max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="94" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="97" max="32767" attributes="0"/>
+              <Component id="jButton3" min="-2" pref="96" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="247" max="32767" attributes="0"/>
-              <Component id="BtoBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButton3" max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="87" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" pref="91" max="-2" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <Component id="BtoBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,6 +65,42 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtoBackActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Image/iconoReservas.jpg"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Image/calendar.png"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Image/search.jpg"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
