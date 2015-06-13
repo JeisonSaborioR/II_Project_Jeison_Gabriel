@@ -15,7 +15,8 @@ public class SystemData {
     
     public void defaultData(){
         GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest", "Quesada", "Costa Rica", 24608127, 5,"Mountain", "7 am", "7 pm", "nothing", 5, 1996));
-        GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest2", "Quesada", "Costa Rica", 24608128, 5,"City", "7 am", "7 pm", "nothing", 5, 1995));
+        GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest2", "Quesada", "Costa Rica", 24608128, 5,"City", "7 am", "7 pm", "nothing", 5, 1995));     
+        GlobalVariables.getInstance().hotelList.get(0).getRoomsList().add(new Room (1,new TypeRoom("Suite",2,12,"asd",true,false,true,false)));
         StartMenu startMenu = new StartMenu();
         startMenu.setVisible(true);
     }

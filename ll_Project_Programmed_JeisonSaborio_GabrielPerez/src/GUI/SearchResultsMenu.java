@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 
@@ -87,6 +88,11 @@ public class SearchResultsMenu extends javax.swing.JFrame {
         BtoBack.setText("Back");
 
         BtoContinue.setText("Continue");
+        BtoContinue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtoContinueActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,6 +145,27 @@ public class SearchResultsMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtoContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoContinueActionPerformed
+        // TODO add your handling code here:
+        int row;
+       
+        row = TabSearchHotels.getSelectedRow();
+        
+        if(row == -1){
+            JOptionPane.showMessageDialog(this,"Selections hotel");
+        }else{
+            String nameHotel = TabSearchHotels.getValueAt(row, 0).toString();
+            for(int i = 0; i < GlobalVariables.getInstance().hotelList.size();i++){
+                if(nameHotel.equals(GlobalVariables.getInstance().hotelList.get(i).getName())){
+                    GlobalVariables.getInstance().hotel = GlobalVariables.getInstance().hotelList.get(i);
+                    HotelMenu hotelMenu = new HotelMenu();
+                    hotelMenu.setVisible(true);
+                    
+                }
+            }
+        }
+    }//GEN-LAST:event_BtoContinueActionPerformed
 
     /**
      * @param args the command line arguments

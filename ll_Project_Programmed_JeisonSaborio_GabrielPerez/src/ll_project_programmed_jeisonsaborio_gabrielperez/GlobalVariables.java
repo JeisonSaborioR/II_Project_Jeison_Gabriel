@@ -7,7 +7,7 @@ public class GlobalVariables {
     public static GlobalVariables instance;
     public ArrayList<Person> peopleList;
     public ArrayList<Hotel> hotelList;
-    
+    public Hotel hotel;
     
     public GlobalVariables() {
         peopleList = new ArrayList();
@@ -65,21 +65,6 @@ public class GlobalVariables {
     public void addSeasonsToHotel(int hotel, Season season ){
         this.hotelList.get(hotel).getSeasonList().add(season);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public void addImagesToHotel(int hotel, String image ){
         this.hotelList.get(hotel).getPhotos().add(image);
     }
