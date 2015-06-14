@@ -5,9 +5,12 @@
  */
 package GUI;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import ll_project_programmed_jeisonsaborio_gabrielperez.Attraction;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
+import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
 
 /**
  *
@@ -65,6 +68,11 @@ public class SearchResultsMenu extends javax.swing.JFrame {
         jLabel1.setText("Search Results:");
 
         BtoSortPrice.setText("Sort price");
+        BtoSortPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtoSortPriceActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Stars(high to low)", "Stars(low to high)" }));
 
@@ -113,7 +121,7 @@ public class SearchResultsMenu extends javax.swing.JFrame {
                         .addGap(75, 75, 75)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(BtoBack, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,6 +174,42 @@ public class SearchResultsMenu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_BtoContinueActionPerformed
+
+    private void BtoSortPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoSortPriceActionPerformed
+
+            String []fila= new String[7];
+            String[]titulos = {"Name","Address","Country","PhoneNumber","Accommodation type","Hour Check-In","Hour Check-Out"};
+            TabSearchHotels.repaint();
+            DefaultTableModel model = new DefaultTableModel(null, titulos);
+            TabSearchHotels.setModel(model);
+            
+            
+        ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
+        
+        int cont = hotels.size();
+        while(cont !=0){
+             for (int i = 0; i < hotels.size(); i++) {
+                
+            }
+        }
+            
+            
+                //fila[0]=a;
+                //fila[1]=b;
+                //fila[2]=c;
+                //fila[3]=d;
+                //fila[3]=d;
+                //fila[3]=d;
+                //fila[3]=d;    
+
+            
+
+                model.addRow(fila);         
+                TabSearchHotels.setModel(model);
+                
+        
+        
+    }//GEN-LAST:event_BtoSortPriceActionPerformed
 
     /**
      * @param args the command line arguments

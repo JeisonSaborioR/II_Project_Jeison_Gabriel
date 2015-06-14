@@ -7,7 +7,7 @@ public class Season {
     private String code;
     private String startDate;
     private String finalDate;
-    private int amount;  
+    private int percentOff;  
     private String typeRoom;
 
     public Season(String name, String code, String startDate, String finalDate, int amount, String typeRoom) {
@@ -15,7 +15,7 @@ public class Season {
         this.code = code;
         this.startDate = startDate;
         this.finalDate = finalDate;
-        this.amount = amount;
+        this.percentOff = amount;
         this.typeRoom = typeRoom;
     }
 
@@ -53,11 +53,11 @@ public class Season {
     }
 
     public int getAmount() {
-        return amount;
+        return percentOff;
     }
 
     public void setAmount(int amount) {
-        this.amount = amount;
+        this.percentOff = amount;
     }
 
     public String getTypeRoom() {
