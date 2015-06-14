@@ -293,12 +293,24 @@ public final class StartMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        GlobalVariables.getInstance().entryDate = dateFormat.format(DateCheckIn.getDate());
+        GlobalVariables.getInstance().entryDate =  dateFormat.format(DateCheckIn.getDate());
         GlobalVariables.getInstance().departureDate = dateFormat.format(DateCheckOut.getDate()); 
         GlobalVariables.getInstance().numberRooms = Integer.parseInt(CobRooms.getSelectedItem().toString());
         GlobalVariables.getInstance().amountAdults = Integer.parseInt(CobAdults.getSelectedItem().toString());
         GlobalVariables.getInstance().amountChildren = Integer.parseInt(CobChildren.getSelectedItem().toString());
-        
+        int startday = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[0]);
+        int startmonth = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
+        int startyear = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
+        int departureday = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[0]);
+        int departuremonth = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
+        int departureyear = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
+        Calendar c = Calendar.getInstance();
+        Calendar startDate = new GregorianCalendar();
+        startDate.set(startyear, startmonth, startday);
+        Calendar departureDate = new GregorianCalendar();
+        departureDate.set(departureyear, departuremonth, departureday);
+        c.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
+        GlobalVariables.getInstance().nightsDuration = c.get(Calendar.DAY_OF_YEAR);
         SearchResultsMenu searchResultsMenu = new SearchResultsMenu();
         searchResultsMenu.loardHotel(textAutoAcompleter.getItemSelected().toString());
         searchResultsMenu.setVisible(true);

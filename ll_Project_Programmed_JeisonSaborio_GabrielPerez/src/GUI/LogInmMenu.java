@@ -142,17 +142,23 @@ public class LogInmMenu extends javax.swing.JFrame {
                         if(GlobalVariables.getInstance().hotel == null){
                             CustomerMain customerMain = new CustomerMain();
                             customerMain.setVisible(true);
+                            GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
                             this.setVisible(false);
+                            return;
                         }else{
                             ReservationMenu reservationMenu = new ReservationMenu();
                             reservationMenu.setVisible(true);
+                            GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
                             this.dispose();
+                            return;
                         }
                        
                     }else if(GlobalVariables.getInstance().peopleList.get(i).getType().equals("Staff")){
                         StaffMain staffMain = new StaffMain();
                         staffMain.setVisible(true);
-                       this.setVisible(false);
+                        GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
+                        this.setVisible(false);
+                        return;
                     }
                 }
                 else{
