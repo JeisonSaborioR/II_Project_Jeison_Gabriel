@@ -9,7 +9,7 @@ public class Reservation {
     private String entryDate;
     private String departureDate;
     private int nightsDuration;
-    private ArrayList roomsList;
+    private ArrayList<Room> roomsList;
     private ArrayList<String> hostedList;
     private int amountChildren;
     private int amountAdults;
@@ -24,6 +24,7 @@ public class Reservation {
         this.amountChildren = amountChildren;
         this.amountAdults = amountAdults;
         this.customer = customer;
+        
     }
 
   
@@ -52,13 +53,15 @@ public class Reservation {
         this.nightsDuration = nightsDuration;
     }
 
-    public ArrayList getRoomsList() {
+    public ArrayList<Room> getRoomsList() {
         return roomsList;
     }
 
-    public void setRoomsList(ArrayList roomsList) {
+    public void setRoomsList(ArrayList<Room> roomsList) {
         this.roomsList = roomsList;
     }
+
+  
 
     public ArrayList<String> getHostedList() {
         return hostedList;

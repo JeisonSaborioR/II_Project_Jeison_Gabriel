@@ -1,7 +1,11 @@
 package GUI;
 
+import java.text.SimpleDateFormat;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Card;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Reservation;
@@ -255,6 +259,12 @@ public final class ReservationMenu extends javax.swing.JFrame {
         }
     }
 
+    public static String ReturnDate(){
+        Date currentDate = new Date();
+        SimpleDateFormat formatoF = new SimpleDateFormat("dd/MM/YYYY");
+        return formatoF.format(currentDate); 
+        
+    }
     private void BtoNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoNameActionPerformed
         // TODO add your handling code here:
         nameList = null;
@@ -265,7 +275,9 @@ public final class ReservationMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int contHoteles = 0;
+        Calendar c = Calendar.getInstance();
+        Calendar c1 = Calendar.getInstance();
+        int contRooms = 0;
         ArrayList<Room> roomList;
         roomList = new ArrayList();
         String name = TxtNameCustomer.getText();
@@ -279,7 +291,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
             Card card = new Card(name,lastName,cardType,cardNumber,Integer.parseInt(securityCode),date);
         }
         for(int i = 0; i < GlobalVariables.getInstance().hotel.getRoomsList().size();i++){
-            if(contHoteles == GlobalVariables.getInstance().numberRooms){
+            if(contRooms == GlobalVariables.getInstance().numberRooms){
                 Reservation reservation = new Reservation(GlobalVariables.getInstance().entryDate,
                         GlobalVariables.getInstance().departureDate,
                         GlobalVariables.getInstance().nightsDuration,
@@ -293,8 +305,54 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 return;
             }
             if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals(GlobalVariables.getInstance().typeRoom)){
+                for(int j = 0;j<GlobalVariables.getInstance().hotel.getReservationList().size();j++){
+                    for(int h=0;h<GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().size();h++){
+                        if(GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().get(h).getRoomNumber() == GlobalVariables.getInstance().hotel.getRoomsList().get(i).getRoomNumber()){
+                            
+                        }
+                           
+                    }
+                
+                    int startday = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[0]);
+                    int startmonth = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[1]);
+                    int startyear = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[2]);
+                    int departureday = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[0]);
+                    int departuremonth = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[1]);
+                    int departureyear = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[2]);
+                   
+                    Calendar startDate = new GregorianCalendar();
+                    startDate.set(startyear, startmonth, startday);
+                    Calendar departureDate = new GregorianCalendar();
+                    departureDate.set(departureyear, departuremonth, departureday);
+                    c.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
+                 
+                    
+                    int newStartday = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[0]);
+                    int newStartmonth = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
+                    int newStartyear = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[2]);
+                    int newDepartureday = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[0]);
+                    int newDeparturemonth = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
+                    int newDepartureyear = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[2]);
+                    c1.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
+                    if((startyear == newStartyear) || (startyear == newDepartureyear) || (departureyear == newStartyear)||(departureyear==newDepartureyear))
+                        if(((startmonth == newStartmonth) && (departuremonth == newDeparturemonth))){
+                            for(int x = startday;x <= departureyear ;x++){
+                                for(int m = newStartday;m <=newDepartureday;m++ ){
+                                    if(m==x){
+                                        
+                                    }
+                                }
+                                  
+                            
+                                    
+                                
+                            }
+                        }
+                    
+                }
+              
                 roomList.add(GlobalVariables.getInstance().hotel.getRoomsList().get(i));
-                contHoteles++;
+                contRooms++;
             }
               
                 

@@ -37,10 +37,6 @@ public class Room {
 
     public void setTypeRoom(TypeRoom typeRoom) {
         this.typeRoom = typeRoom;
-    }
-
-  
-    
-    
+    }    
     
 }
