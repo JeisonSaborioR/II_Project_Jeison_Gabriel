@@ -332,7 +332,7 @@ public final class HotelMenu extends javax.swing.JFrame {
         if(row == -1){
             JOptionPane.showMessageDialog(this,"Selections hotel");
         }else{
-            String typeRoom = TabRoom.getValueAt(row, 1).toString();
+            GlobalVariables.getInstance().typeRoom = TabRoom.getValueAt(row, 1).toString();
             LogInmMenu logInMenu = new LogInmMenu();
             logInMenu.setVisible(true);         
         }    

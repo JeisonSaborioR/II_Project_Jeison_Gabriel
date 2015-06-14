@@ -8,7 +8,7 @@ public class GlobalVariables {
     public ArrayList<Person> peopleList;
     public ArrayList<Hotel> hotelList;
     public Hotel hotel;
-    
+    public String typeRoom;
     public GlobalVariables() {
         peopleList = new ArrayList();
         hotelList = new ArrayList();
