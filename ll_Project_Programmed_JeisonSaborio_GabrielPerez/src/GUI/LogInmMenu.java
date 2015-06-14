@@ -144,6 +144,7 @@ public class LogInmMenu extends javax.swing.JFrame {
                             CustomerMain customerMain = new CustomerMain();
                             customerMain.setVisible(true);
                             this.setVisible(false);
+                            this.dispose();
                             return;
                         }else if(GlobalVariables.getInstance().hotel != null){
                             GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
@@ -154,10 +155,10 @@ public class LogInmMenu extends javax.swing.JFrame {
                         }
                        
                     }else if(GlobalVariables.getInstance().peopleList.get(i).getType().equals("Staff")){
-                        GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
                         StaffMain staffMain = new StaffMain();
                         staffMain.setVisible(true);
                         this.setVisible(false);
+                        this.dispose();
                         return;
                     }
                 }

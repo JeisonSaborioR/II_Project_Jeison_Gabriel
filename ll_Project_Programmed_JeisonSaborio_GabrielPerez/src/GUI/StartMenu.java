@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public final class StartMenu extends javax.swing.JFrame {
     TextAutoCompleter textAutoAcompleter;
-    DateFormat dateFormat = DateFormat.getDateTimeInstance();
+    DateFormat dateFormat = DateFormat.getDateInstance();
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     ArrayList<String> listDescription = new ArrayList<>();
     
@@ -305,10 +305,10 @@ public final class StartMenu extends javax.swing.JFrame {
         GlobalVariables.getInstance().amountChildren = Integer.parseInt(CobChildren.getSelectedItem().toString());
         int startday = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[0]);
         int startmonth = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
-        int startyear = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
+        int startyear = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[2]);
         int departureday = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[0]);
         int departuremonth = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
-        int departureyear = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
+        int departureyear = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[2]);
         Calendar c = Calendar.getInstance();
         Calendar startDate = new GregorianCalendar();
         startDate.set(startyear, startmonth, startday);

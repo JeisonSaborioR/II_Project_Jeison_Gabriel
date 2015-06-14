@@ -169,7 +169,13 @@ public class SearchResultsMenu extends javax.swing.JFrame {
                     GlobalVariables.getInstance().hotel = GlobalVariables.getInstance().hotelList.get(i);
                     HotelMenu hotelMenu = new HotelMenu();
                     hotelMenu.setVisible(true);
-                    
+                    this.dispose();
+                    return;
+                }else{
+                    ReservationMenu reservationMenu = new ReservationMenu();
+                    reservationMenu.setVisible(true);
+                    this.dispose();
+                    return;
                 }
             }
         }

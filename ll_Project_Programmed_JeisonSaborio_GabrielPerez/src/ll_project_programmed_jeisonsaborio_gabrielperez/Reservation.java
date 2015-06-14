@@ -13,9 +13,9 @@ public class Reservation {
     private ArrayList<String> hostedList;
     private int amountChildren;
     private int amountAdults;
-    private Customer customer;
+    private Person customer;
 
-    public Reservation(String entryDate, String departureDate, int nightsDuration, ArrayList roomsList, ArrayList<String> hostedList, int amountChildren, int amountAdults, Customer customer) {
+    public Reservation(String entryDate, String departureDate, int nightsDuration, ArrayList roomsList, ArrayList<String> hostedList, int amountChildren, int amountAdults, Person customer) {
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.nightsDuration = nightsDuration;
@@ -84,7 +84,7 @@ public class Reservation {
         this.amountAdults = amountAdults;
     }
 
-    public Customer getCustomer() {
+    public Person getCustomer() {
         return customer;
     }
 
@@ -92,5 +92,9 @@ public class Reservation {
         this.customer = customer;
     }
     
+    public void reservationHotel(Reservation reservation){
+        GlobalVariables.getInstance().hotel.reservationList.add(reservation);
+        GlobalVariables.getInstance().person.getListReservation().add(reservation);
+    }
     
 }

@@ -83,5 +83,6 @@ public abstract class Person {
     
     public abstract String getType();
     public abstract ArrayList<Card> getListCards();
+    public abstract ArrayList<Reservation> getListReservation();
     
 }

@@ -272,6 +272,11 @@ public final class HotelMenu extends javax.swing.JFrame {
         jScrollPane3.setViewportView(TabRoom);
 
         BtoBack.setText("Back");
+        BtoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtoBackActionPerformed(evt);
+            }
+        });
 
         BtoReservation.setText("Reservation");
         BtoReservation.addActionListener(new java.awt.event.ActionListener() {
@@ -333,10 +338,23 @@ public final class HotelMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Selections hotel");
         }else{
             GlobalVariables.getInstance().typeRoom = TabRoom.getValueAt(row, 1).toString();
-            LogInmMenu logInMenu = new LogInmMenu();
-            logInMenu.setVisible(true);         
+            if(GlobalVariables.getInstance().person == null){
+                LogInmMenu logInMenu = new LogInmMenu();
+                logInMenu.setVisible(true);   
+                this.dispose();
+            }else{
+                
+            }
+           
         }    
     }//GEN-LAST:event_BtoReservationActionPerformed
+
+    private void BtoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoBackActionPerformed
+        // TODO add your handling code here:
+        SearchResultsMenu searchResultsMenu = new SearchResultsMenu();
+        searchResultsMenu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtoBackActionPerformed
 
     /**
      * @param args the command line arguments

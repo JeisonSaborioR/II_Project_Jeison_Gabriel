@@ -31,6 +31,11 @@ public class Staff extends Person {
     public ArrayList<Card> getListCards() {
         return null;
     }
+
+    @Override
+    public ArrayList<Reservation> getListReservation() {
+        return null;
+    }
     
     
     

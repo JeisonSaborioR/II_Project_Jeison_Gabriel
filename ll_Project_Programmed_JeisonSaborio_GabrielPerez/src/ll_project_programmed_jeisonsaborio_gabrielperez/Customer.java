@@ -49,7 +49,7 @@ public class Customer extends Person {
     public void setListCards(ArrayList<Card> listCards) {
         this.listCards = listCards;
     }
-
+    @Override
     public ArrayList<Reservation> getListReservation() {
         return listReservation;
     }

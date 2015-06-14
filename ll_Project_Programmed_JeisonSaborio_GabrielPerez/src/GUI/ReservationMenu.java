@@ -4,6 +4,8 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Card;
+import ll_project_programmed_jeisonsaborio_gabrielperez.Reservation;
+import ll_project_programmed_jeisonsaborio_gabrielperez.Room;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,6 +27,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
         loadSaveCards();
     }
    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -54,6 +57,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
         TxtPSecurityCode = new javax.swing.JPasswordField();
         TxtFExpirationDate = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
+        BtoBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +80,12 @@ public final class ReservationMenu extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        CobSavedCards.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CobSavedCardsMouseClicked(evt);
             }
         });
 
@@ -103,6 +113,13 @@ public final class ReservationMenu extends javax.swing.JFrame {
 
         jLabel5.setText("Selection card type");
 
+        BtoBack.setText("Cancel");
+        BtoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtoBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,9 +134,6 @@ public final class ReservationMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LabCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -131,32 +145,30 @@ public final class ReservationMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtLastNameCustomer))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtCardType))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtCardNumber))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtFExpirationDate))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TxtPSecurityCode))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(TxtLastNameCustomer))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(TxtCardType))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel10)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(TxtCardNumber))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(TxtFExpirationDate))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel11)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(TxtPSecurityCode)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TxtNameCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -173,6 +185,12 @@ public final class ReservationMenu extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(CobCardType, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap()))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(BtoBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(117, 117, 117))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,9 +240,11 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(TxtFExpirationDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(BtoBack))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -234,6 +254,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
             CobSavedCards.addItem(GlobalVariables.getInstance().person.getListCards().get(i).getCardNumber());
         }
     }
+
     private void BtoNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoNameActionPerformed
         // TODO add your handling code here:
         nameList = null;
@@ -244,6 +265,9 @@ public final class ReservationMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int contHoteles = 0;
+        ArrayList<Room> roomList;
+        roomList = new ArrayList();
         String name = TxtNameCustomer.getText();
         String lastName = TxtLastNameCustomer.getText();
         String cardType = TxtCardType.getText();
@@ -254,8 +278,41 @@ public final class ReservationMenu extends javax.swing.JFrame {
         if(response == false){
             Card card = new Card(name,lastName,cardType,cardNumber,Integer.parseInt(securityCode),date);
         }
-       
+        for(int i = 0; i < GlobalVariables.getInstance().hotel.getRoomsList().size();i++){
+            if(contHoteles == GlobalVariables.getInstance().numberRooms){
+                Reservation reservation = new Reservation(GlobalVariables.getInstance().entryDate,
+                        GlobalVariables.getInstance().departureDate,
+                        GlobalVariables.getInstance().nightsDuration,
+                        roomList,nameList,GlobalVariables.getInstance().amountChildren,
+                        GlobalVariables.getInstance().amountAdults,
+                        GlobalVariables.getInstance().person);
+                reservation.reservationHotel(reservation);
+                LogInmMenu logInmMenu = new LogInmMenu();
+                logInmMenu.setVisible(true);
+                this.dispose();
+                return;
+            }
+            if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals(GlobalVariables.getInstance().typeRoom)){
+                roomList.add(GlobalVariables.getInstance().hotel.getRoomsList().get(i));
+                contHoteles++;
+            }
+              
+                
+        }
+            
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BtoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoBackActionPerformed
+        // TODO add your handling code here:
+        LogInmMenu logInmMenu = new LogInmMenu();
+        logInmMenu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtoBackActionPerformed
+
+    private void CobSavedCardsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CobSavedCardsMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_CobSavedCardsMouseClicked
 
     public boolean validateCard(int cardNumber){
         for(int j = 0; j < GlobalVariables.getInstance().person.getListCards().size();j++){
@@ -304,6 +361,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtoBack;
     private javax.swing.JButton BtoName;
     private javax.swing.JComboBox CobCardType;
     private javax.swing.JComboBox CobSavedCards;
