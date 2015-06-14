@@ -140,23 +140,23 @@ public class LogInmMenu extends javax.swing.JFrame {
                 if(GlobalVariables.getInstance().peopleList.get(i).getPassWord().equals(passWord)){
                     if(GlobalVariables.getInstance().peopleList.get(i).getType().equals("Customer")){
                         if(GlobalVariables.getInstance().hotel == null){
+                            GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
                             CustomerMain customerMain = new CustomerMain();
                             customerMain.setVisible(true);
-                            GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
                             this.setVisible(false);
                             return;
-                        }else{
-                            ReservationMenu reservationMenu = new ReservationMenu();
-                            reservationMenu.setVisible(true);
+                        }else if(GlobalVariables.getInstance().hotel != null){
                             GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
+                            ReservationMenu reservationMenu = new ReservationMenu();
+                            reservationMenu.setVisible(true);                         
                             this.dispose();
                             return;
                         }
                        
                     }else if(GlobalVariables.getInstance().peopleList.get(i).getType().equals("Staff")){
+                        GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
                         StaffMain staffMain = new StaffMain();
                         staffMain.setVisible(true);
-                        GlobalVariables.getInstance().person = GlobalVariables.getInstance().peopleList.get(i);
                         this.setVisible(false);
                         return;
                     }

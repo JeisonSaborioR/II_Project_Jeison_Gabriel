@@ -1,6 +1,8 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
+import java.util.ArrayList;
+
 public abstract class Person {
     private String name;
     private String lastName;
@@ -80,6 +82,6 @@ public abstract class Person {
     }
     
     public abstract String getType();
-    
+    public abstract ArrayList<Card> getListCards();
     
 }

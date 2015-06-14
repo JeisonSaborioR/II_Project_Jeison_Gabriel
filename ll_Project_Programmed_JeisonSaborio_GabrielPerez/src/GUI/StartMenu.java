@@ -175,6 +175,11 @@ public final class StartMenu extends javax.swing.JFrame {
         });
 
         BtoLoginandaccount.setText("Login and Account");
+        BtoLoginandaccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtoLoginandaccountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -323,6 +328,13 @@ public final class StartMenu extends javax.swing.JFrame {
      
    
     }//GEN-LAST:event_DateCheckInPropertyChange
+
+    private void BtoLoginandaccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoLoginandaccountActionPerformed
+        // TODO add your handling code here:
+        LogInmMenu logInmMenu = new LogInmMenu();
+        logInmMenu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtoLoginandaccountActionPerformed
 
     /**
      * @param args the command line arguments

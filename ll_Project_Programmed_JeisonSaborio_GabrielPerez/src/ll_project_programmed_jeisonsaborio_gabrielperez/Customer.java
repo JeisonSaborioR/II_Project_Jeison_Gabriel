@@ -41,6 +41,26 @@ public class Customer extends Person {
     public void setNumberPartner(int numberPartner) {
         this.numberPartner = numberPartner;
     }
+    @Override
+    public ArrayList<Card> getListCards() {
+        return listCards;
+    }
+
+    public void setListCards(ArrayList<Card> listCards) {
+        this.listCards = listCards;
+    }
+
+    public ArrayList<Reservation> getListReservation() {
+        return listReservation;
+    }
+
+    public void setListReservation(ArrayList<Reservation> listReservation) {
+        this.listReservation = listReservation;
+    }
+
+
+    
+    
 
     @Override
     public String getType() {

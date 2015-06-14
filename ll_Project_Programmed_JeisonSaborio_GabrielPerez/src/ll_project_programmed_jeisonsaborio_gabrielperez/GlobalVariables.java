@@ -16,6 +16,7 @@ public class GlobalVariables {
     public int amountAdults;
     public int numberRooms;
     public Person person;
+    
     public GlobalVariables() {
         peopleList = new ArrayList();
         hotelList = new ArrayList();

@@ -1,6 +1,8 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
+import java.util.ArrayList;
+
 
 public class Staff extends Person {
     private String startDate;
@@ -23,6 +25,11 @@ public class Staff extends Person {
         
         return "Staff";
     
+    }
+
+    @Override
+    public ArrayList<Card> getListCards() {
+        return null;
     }
     
     
