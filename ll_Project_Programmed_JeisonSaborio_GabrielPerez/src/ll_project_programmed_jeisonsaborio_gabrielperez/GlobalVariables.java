@@ -9,6 +9,12 @@ public class GlobalVariables {
     public ArrayList<Hotel> hotelList;
     public Hotel hotel;
     public String typeRoom;
+    public String entryDate;
+    public String departureDate;
+    public int nightsDuration;
+    public int amountChildren;
+    public int amountAdults;
+    public int numberRooms;
     public GlobalVariables() {
         peopleList = new ArrayList();
         hotelList = new ArrayList();
