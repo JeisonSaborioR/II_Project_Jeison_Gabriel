@@ -17,11 +17,12 @@ public class SystemData {
         //String currency, String country, int numberPartner, String name, String lastName, char genre, String emailAdress, String passWord, String passwordConfirmation, int phoneNumber
         String password = "123";
         password = DigestUtils.md5Hex(password);
+        String password2 = "als";
+        password2 = DigestUtils.md5Hex(password2);
         tf.personCreator("Colon","Costa Rica", 756, "Jeison","Saborio",'F', "j", password, password,6345);
-        tf.personCreator("Gabriel","asd","Carlos",'M',"asldfj","als","als",3242);
+        tf.personCreator("23/06/2014","Carlos","Valverde",'M',"c",password2,password2,3242);
         tf.personCreator("Fabi", "asd", "sadf", 'F', "ahgf", "asd", "asdf", 4353);
-        Room room = new Room(15,new TypeRoom("Suit", 2, 4 ,  "",  true,  false,  false,  true),2500);
-       
+        Room room = new Room(15,new TypeRoom("Suit", 2, 4 ,  "",  true,  false,  false,  true),2500);      
         
         
         

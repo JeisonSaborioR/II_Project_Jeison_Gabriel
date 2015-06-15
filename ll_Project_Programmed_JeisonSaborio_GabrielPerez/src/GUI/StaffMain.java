@@ -31,7 +31,6 @@ public final class StaffMain extends javax.swing.JFrame {
     String originalName;
     public StaffMain() {
         initComponents();
-        systemData.defaultData();
         setHotels();
         
     }

@@ -157,13 +157,13 @@ public class LogInmMenu extends javax.swing.JFrame {
                     }else if(GlobalVariables.getInstance().peopleList.get(i).getType().equals("Staff")){
                         StaffMain staffMain = new StaffMain();
                         staffMain.setVisible(true);
-                        this.setVisible(false);
                         this.dispose();
                         return;
                     }
                 }
                 else{
                     JOptionPane.showMessageDialog(this,"Password incorrect");
+                    return;
                 }
             }
         }
