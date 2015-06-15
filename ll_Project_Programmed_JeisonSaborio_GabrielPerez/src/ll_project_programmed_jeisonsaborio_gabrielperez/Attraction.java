@@ -11,6 +11,10 @@ public class Attraction {
         this.name = name;
     }
 
+    public Attraction() {
+    }
+    
+
     public String getCode() {
         return code;
     }

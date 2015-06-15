@@ -19,6 +19,9 @@ public class Season {
         this.typeRoom = typeRoom;
     }
 
+    public Season() {
+    }
+
     
     public String getName() {
         return name;

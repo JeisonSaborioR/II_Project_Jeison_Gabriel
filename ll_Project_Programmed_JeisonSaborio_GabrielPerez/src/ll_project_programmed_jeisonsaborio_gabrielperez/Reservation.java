@@ -28,6 +28,9 @@ public class Reservation {
         this.paid = paid;
     }
 
+    public Reservation() {
+    }
+
   
 
     public String getEntryDate() {
