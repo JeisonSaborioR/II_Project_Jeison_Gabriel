@@ -163,10 +163,11 @@ public class LogInmMenu extends javax.swing.JFrame {
                     }
                 }
                 else{
-                    JOptionPane.showMessageDialog(this,"Email or password incorrect");
+                    JOptionPane.showMessageDialog(this,"Password incorrect");
                 }
             }
         }
+        JOptionPane.showMessageDialog(this,"User incorrect");
         
     }//GEN-LAST:event_BtoLogInActionPerformed
 
