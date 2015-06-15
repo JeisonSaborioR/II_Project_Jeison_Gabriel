@@ -1,11 +1,14 @@
 package GUI;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Card;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Reservation;
@@ -21,7 +24,9 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.Room;
  * @author Jeison
  */
 public final class ReservationMenu extends javax.swing.JFrame {
-    public static ArrayList<String> nameList;
+    public  ArrayList<String> nameList;
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    String cardType;
     /**
      * Creates new form ReservationMenu
      */
@@ -112,6 +117,11 @@ public final class ReservationMenu extends javax.swing.JFrame {
         jLabel12.setText("Expiration Date:");
 
         CobCardType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Visa", "Visa Electron", "Master Card", "Discover", "American Express", "Maestro", " " }));
+        CobCardType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CobCardTypeMouseClicked(evt);
+            }
+        });
 
         try {
             TxtFExpirationDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -298,15 +308,10 @@ public final class ReservationMenu extends javax.swing.JFrame {
         }
     }
 
-    public static String ReturnDate(){
-        Date currentDate = new Date();
-        SimpleDateFormat formatoF = new SimpleDateFormat("dd/MM/YYYY");
-        return formatoF.format(currentDate); 
-        
-    }
+ 
     private void BtoNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoNameActionPerformed
 
-        nameList = null;
+       
         String name = TxtName.getText();
         nameList.add(name);
         TxtName.setText("");
@@ -314,14 +319,14 @@ public final class ReservationMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Calendar c = Calendar.getInstance();
-        Calendar c1 = Calendar.getInstance();
         int contRooms = 0;
+    
         ArrayList<Room> roomList;
         roomList = new ArrayList();
         String name = TxtNameCustomer.getText();
         String lastName = TxtLastNameCustomer.getText();
-        String cardType = TxtCardType.getText();
+        
+        cardType = TxtCardType.getText();
         int cardNumber = Integer.parseInt(TxtCardNumber.getText());
         String securityCode = new String (TxtPSecurityCode.getPassword());
         String date = TxtFExpirationDate.getText();
@@ -333,8 +338,12 @@ public final class ReservationMenu extends javax.swing.JFrame {
         if(RadioButtonPaid.isSelected()){
             paid = true;
         }
-
         for(int i = 0; i < GlobalVariables.getInstance().hotel.getRoomsList().size();i++){
+            boolean busy = false;
+            if(GlobalVariables.getInstance().hotel.getReservationList().isEmpty()){
+                roomList.add(GlobalVariables.getInstance().hotel.getRoomsList().get(i));
+                contRooms++;  
+            }
             if(contRooms == GlobalVariables.getInstance().numberRooms){
                 Reservation reservation = new Reservation(GlobalVariables.getInstance().entryDate,
                         GlobalVariables.getInstance().departureDate,
@@ -343,71 +352,89 @@ public final class ReservationMenu extends javax.swing.JFrame {
                         GlobalVariables.getInstance().amountAdults,
                         GlobalVariables.getInstance().person,paid );
                 reservation.reservationHotel(reservation);
-                LogInmMenu logInmMenu = new LogInmMenu();
-                logInmMenu.setVisible(true);
+                CustomerMain customerMain = new CustomerMain();
+                customerMain.setVisible(true);
                 this.dispose();
                 return;
             }
-            if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals(GlobalVariables.getInstance().typeRoom)){
+            if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals(GlobalVariables.getInstance().typeRoom)){       
                 for(int j = 0;j<GlobalVariables.getInstance().hotel.getReservationList().size();j++){
+                    
                     for(int h=0;h<GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().size();h++){
                         if(GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().get(h).getRoomNumber() == GlobalVariables.getInstance().hotel.getRoomsList().get(i).getRoomNumber()){
-                            
-                        }
-                           
-                    }
-                
-                    int startday = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[0]);
-                    int startmonth = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[1]);
-                    int startyear = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[2]);
-                    int departureday = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[0]);
-                    int departuremonth = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[1]);
-                    int departureyear = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[2]);
-                   
-                    Calendar startDate = new GregorianCalendar();
-                    startDate.set(startyear, startmonth, startday);
-                    Calendar departureDate = new GregorianCalendar();
-                    departureDate.set(departureyear, departuremonth, departureday);
-                    c.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
-                 
-                    
-                    int newStartday = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[0]);
-                    int newStartmonth = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
-                    int newStartyear = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[2]);
-                    int newDepartureday = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[0]);
-                    int newDeparturemonth = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
-                    int newDepartureyear = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[2]);
-                    c1.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
-                    if((startyear == newStartyear) || (startyear == newDepartureyear) || (departureyear == newStartyear)||(departureyear==newDepartureyear))
-                        if(((startmonth == newStartmonth) && (departuremonth == newDeparturemonth))){
-                            for(int x = startday;x <= departureyear ;x++){
-                                for(int m = newStartday;m <=newDepartureday;m++ ){
-                                    if(m==x){
-                                        
+                            try {
+                                Date fechaDate1 = formato.parse(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate());
+                                Date fechaDate2 = formato.parse(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate());
+                                Date fechaDate3 = formato.parse(GlobalVariables.getInstance().entryDate);
+                                if ((fechaDate1.after(fechaDate3)) &&(fechaDate2.after(fechaDate3))){
+                                    boolean response1 = validateRoom(j);
+                                    if(response1 == true){
+                                        busy = true;
+                                      
+                                 
                                     }
                                 }
-                                  
-                            
-                                    
-                                
+                            } catch (ParseException ex) {
+                                Logger.getLogger(ReservationMenu.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                        }
-                    
+                          
+                           
+                         
+                        }      
+                    }
+
                 }
-              
-                roomList.add(GlobalVariables.getInstance().hotel.getRoomsList().get(i));
-                contRooms++;
-            }
-              
-                
+                if(busy == false){
+                    roomList.add(GlobalVariables.getInstance().hotel.getRoomsList().get(i));
+                    contRooms++;
+                }
+
+
+            }        
         }
+        JOptionPane.showMessageDialog(this, "Hotel without availability");
             
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    public boolean validateRoom(int j){
+        Calendar c = Calendar.getInstance();
+        Calendar c1 = Calendar.getInstance();
+        int startday = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[0]);
+        int startmonth = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[1]);
+        int startyear = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate().split("/")[2]);
+        int departureday = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[0]);
+        int departuremonth = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[1]);
+        int departureyear = Integer.parseInt(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate().split("/")[2]);
+        Calendar startDate = new GregorianCalendar();
+        startDate.set(startyear, startmonth, startday);
+        Calendar departureDate = new GregorianCalendar();
+        departureDate.set(departureyear, departuremonth, departureday);
+        c.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
+        int newStartday = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[0]);
+        int newStartmonth = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
+        int newStartyear = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[2]);
+        int newDepartureday = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[0]);
+        int newDeparturemonth = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
+        int newDepartureyear = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[2]);
+        c1.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
+        if((startyear == newStartyear) || (startyear == newDepartureyear) || (departureyear == newStartyear)||(departureyear==newDepartureyear)){
+            if(((startmonth == newStartmonth) && (departuremonth == newDeparturemonth))){
+                for(int x = startday;x <= departureyear ;x++){
+                    for(int m = newStartday;m <=newDepartureday;m++ ){
+                        if(m==x){
+                            return true;
+                        }
+                    }
+                }
+                
+            }
+        }
+        return false;
+        
+    }
     private void BtoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoBackActionPerformed
         // TODO add your handling code here:
-        LogInmMenu logInmMenu = new LogInmMenu();
-        logInmMenu.setVisible(true);
+        CustomerMain customerMain = new CustomerMain();
+        customerMain.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtoBackActionPerformed
 
@@ -415,6 +442,13 @@ public final class ReservationMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_CobSavedCardsMouseClicked
+
+    private void CobCardTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CobCardTypeMouseClicked
+        // TODO add your handling code here:
+        cardType = CobCardType.getSelectedItem().toString();
+        TxtCardType.setText(cardType);
+        
+    }//GEN-LAST:event_CobCardTypeMouseClicked
 
     public boolean validateCard(int cardNumber){
         for(int j = 0; j < GlobalVariables.getInstance().person.getListCards().size();j++){

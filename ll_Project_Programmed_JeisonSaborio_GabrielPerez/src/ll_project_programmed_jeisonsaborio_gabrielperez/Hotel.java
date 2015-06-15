@@ -45,6 +45,7 @@ public class Hotel {
         this.staffList = new ArrayList<>();
         this.seasonList = new ArrayList<>();
         this.roomsList = new ArrayList<>();
+        this.reservationList = new ArrayList<>();
         
     }
     
