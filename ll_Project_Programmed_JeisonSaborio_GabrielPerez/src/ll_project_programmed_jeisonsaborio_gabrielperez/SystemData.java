@@ -8,10 +8,7 @@ package ll_project_programmed_jeisonsaborio_gabrielperez;
 import GUI.StartMenu;
 import org.apache.commons.codec.digest.DigestUtils;
 
-/**
- *
- * @author Jeison
- */
+//Class that contains the default system
 public class SystemData {
     
     public void defaultData(){

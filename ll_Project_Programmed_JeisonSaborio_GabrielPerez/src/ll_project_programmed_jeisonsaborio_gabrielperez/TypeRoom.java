@@ -1,6 +1,6 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
-
+//Class for creating objects of type room
 public class TypeRoom {
     private String name;
     private int maximumPeople;

@@ -1,7 +1,7 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
-
+//Classes allows object creation system type season
 public class Season {
     private String name;
     private String code;

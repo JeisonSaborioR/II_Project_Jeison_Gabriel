@@ -3,7 +3,7 @@ package ll_project_programmed_jeisonsaborio_gabrielperez;
 
 import java.util.ArrayList;
 
-
+//Class that allows creating objects Reservation type
 public class Reservation {
  
     private String entryDate;
@@ -103,7 +103,7 @@ public class Reservation {
     public void setPaid(boolean paid) {
         this.paid = paid;
     }
-    
+ //Method to add reservations system   
     public void reservationHotel(Reservation reservation){
         GlobalVariables.getInstance().hotel.reservationList.add(reservation);
         GlobalVariables.getInstance().person.getListReservation().add(reservation);

@@ -2,6 +2,8 @@
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 import java.util.ArrayList;
 
+//Class that allows customers to add different customer system
+//This class inherits from person
 public class Customer extends Person {
     private String currency;
     private String country;
@@ -41,6 +43,7 @@ public class Customer extends Person {
     public void setNumberPartner(int numberPartner) {
         this.numberPartner = numberPartner;
     }
+ 
     @Override
     public ArrayList<Card> getListCards() {
         return listCards;
@@ -58,10 +61,7 @@ public class Customer extends Person {
         this.listReservation = listReservation;
     }
 
-
-    
-    
-
+    //The method used to differentiate fatory people within the program
     @Override
     public String getType() {
         return "Customer";

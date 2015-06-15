@@ -1,7 +1,7 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
-
+//Class system allows you to insert cards of different customers
 public class Card {
     private String name;
     private String lastName;

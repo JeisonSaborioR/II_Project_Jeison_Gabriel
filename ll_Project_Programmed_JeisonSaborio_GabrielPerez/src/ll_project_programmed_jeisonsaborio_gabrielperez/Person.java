@@ -2,7 +2,7 @@
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
 import java.util.ArrayList;
-
+//Person abstract class for creating objects such type of person and allows the inheritance of attributes and meted
 public abstract class Person {
     private String name;
     private String lastName;

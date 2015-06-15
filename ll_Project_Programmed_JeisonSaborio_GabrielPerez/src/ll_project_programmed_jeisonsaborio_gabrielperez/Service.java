@@ -1,7 +1,7 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
-
+//Classes that allows the creation of objects of type services
 public class Service {
     private String code;
     private String name;

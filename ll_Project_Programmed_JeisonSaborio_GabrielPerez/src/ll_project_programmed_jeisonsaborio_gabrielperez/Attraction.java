@@ -1,6 +1,7 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
-
+//Class system allows you to insert attractions
+//Attributes: code,name
 public class Attraction {
     private String code;
     private String name;

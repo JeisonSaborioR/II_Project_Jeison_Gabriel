@@ -1,7 +1,7 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
-
+//Class system allows inserting categories of different customers
 public class Category {
     private int taxation;
     private String description;

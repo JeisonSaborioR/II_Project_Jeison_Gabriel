@@ -244,7 +244,7 @@ public final class StartMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
- 
+    
     public void loadNameHotel(){
        
         for(int i = 0; i < GlobalVariables.getInstance().hotelList.size();i++){

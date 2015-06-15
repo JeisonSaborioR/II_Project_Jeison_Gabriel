@@ -3,7 +3,8 @@ package ll_project_programmed_jeisonsaborio_gabrielperez;
 
 import java.util.ArrayList;
 
-
+//Class for creating objects of type staff
+//This class inherits from the person class
 public class Staff extends Person {
     private String startDate;
 

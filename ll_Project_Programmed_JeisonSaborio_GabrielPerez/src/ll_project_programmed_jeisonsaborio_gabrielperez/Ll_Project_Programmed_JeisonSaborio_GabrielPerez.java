@@ -7,10 +7,7 @@ package ll_project_programmed_jeisonsaborio_gabrielperez;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Jeison
- */
+
 public class Ll_Project_Programmed_JeisonSaborio_GabrielPerez {
 
     /**

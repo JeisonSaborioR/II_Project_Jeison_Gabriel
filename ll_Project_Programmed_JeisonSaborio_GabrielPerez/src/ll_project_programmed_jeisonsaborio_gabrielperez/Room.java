@@ -1,7 +1,7 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
 
-
+//Class that allows you to add objects to the system type rooms
 public class Room {
     private int roomNumber;
     private int price;

@@ -3,7 +3,7 @@ package ll_project_programmed_jeisonsaborio_gabrielperez;
 
 import java.util.ArrayList;
 
-
+//Cass hotel can instantiate objects of type and add them to the system
 public class Hotel {
     private String name;
     private String address;

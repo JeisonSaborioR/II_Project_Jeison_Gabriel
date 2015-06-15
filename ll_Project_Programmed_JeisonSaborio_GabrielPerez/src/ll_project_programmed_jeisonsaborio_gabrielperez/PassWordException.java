@@ -1,6 +1,6 @@
 
 package ll_project_programmed_jeisonsaborio_gabrielperez;
-
+//Class that allows creating different exception within the system
 public class PassWordException extends Exception {
 
     public PassWordException(String message) {
