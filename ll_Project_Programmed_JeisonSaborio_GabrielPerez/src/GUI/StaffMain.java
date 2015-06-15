@@ -8,7 +8,6 @@ package GUI;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -20,6 +19,7 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Room;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Season;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Service;
+import ll_project_programmed_jeisonsaborio_gabrielperez.SystemData;
 import ll_project_programmed_jeisonsaborio_gabrielperez.TypeRoom;
 
 /**
@@ -27,13 +27,13 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.TypeRoom;
  * @author Jeison
  */
 public final class StaffMain extends javax.swing.JFrame {
-
+    SystemData systemData = new SystemData();
     String originalName;
     public StaffMain() {
         initComponents();
-        GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest", "Quesada", "Costa Rica", 24608127, 5,"Mountain", "7 am", "7 pm", "nothing", 5, 1996));
-        GlobalVariables.getInstance().hotelList.add(new Hotel("Budapest2", "Quesada", "Costa Rica", 24608128, 5,"City", "7 am", "7 pm", "nothing", 5, 1995));
+        systemData.defaultData();
         setHotels();
+        
     }
 
     /**
@@ -200,6 +200,11 @@ public final class StaffMain extends javax.swing.JFrame {
         jLabel6.setText("kind of lodging");
 
         ComboBoxHotelKindOfLodging.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cabin", "Hotel", "Hostel", "All-in" }));
+        ComboBoxHotelKindOfLodging.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxHotelKindOfLodgingActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Size");
 
@@ -346,7 +351,7 @@ public final class StaffMain extends javax.swing.JFrame {
 
         jLabel18.setText("kind of lodging");
 
-        ComboBoxHotelKindOfLodgingManage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mountain", "Beach", "City" }));
+        ComboBoxHotelKindOfLodgingManage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cabin", "Hotel", "Hostel", "All-in" }));
 
         jLabel19.setText("Size");
 
@@ -587,7 +592,7 @@ public final class StaffMain extends javax.swing.JFrame {
 
         jLabel32.setText("Room number");
         jPanel4.add(jLabel32);
-        jLabel32.setBounds(12, 42, 66, 15);
+        jLabel32.setBounds(12, 42, 90, 15);
 
         TextRoomNumber.setEnabled(false);
         jPanel4.add(TextRoomNumber);
@@ -595,7 +600,7 @@ public final class StaffMain extends javax.swing.JFrame {
 
         jLabel33.setText("Kind of room");
         jPanel4.add(jLabel33);
-        jLabel33.setBounds(12, 72, 61, 15);
+        jLabel33.setBounds(12, 72, 90, 15);
 
         ComboBoxKindOfRoom.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suite", "Double", "Individual" }));
         ComboBoxKindOfRoom.setEnabled(false);
@@ -604,7 +609,7 @@ public final class StaffMain extends javax.swing.JFrame {
 
         jLabel34.setText("Max of people");
         jPanel4.add(jLabel34);
-        jLabel34.setBounds(12, 99, 68, 15);
+        jLabel34.setBounds(12, 99, 90, 15);
 
         TextMaxOfPeople.setEnabled(false);
         jPanel4.add(TextMaxOfPeople);
@@ -612,7 +617,7 @@ public final class StaffMain extends javax.swing.JFrame {
 
         jLabel35.setText("Size");
         jPanel4.add(jLabel35);
-        jLabel35.setBounds(12, 124, 21, 15);
+        jLabel35.setBounds(12, 124, 70, 15);
 
         TextSize.setEnabled(false);
         jPanel4.add(TextSize);
@@ -620,7 +625,7 @@ public final class StaffMain extends javax.swing.JFrame {
 
         jLabel36.setText("Description");
         jPanel4.add(jLabel36);
-        jLabel36.setBounds(12, 192, 54, 15);
+        jLabel36.setBounds(12, 192, 90, 15);
 
         TextPaneDescription.setEnabled(false);
         jScrollPane3.setViewportView(TextPaneDescription);
@@ -773,7 +778,9 @@ public final class StaffMain extends javax.swing.JFrame {
 
         jLabel40.setText("Price");
         jPanel4.add(jLabel40);
-        jLabel40.setBounds(12, 157, 24, 15);
+        jLabel40.setBounds(12, 157, 60, 15);
+
+        TextFieldPrice.setEnabled(false);
         jPanel4.add(TextFieldPrice);
         TextFieldPrice.setBounds(111, 155, 160, 19);
 
@@ -823,7 +830,7 @@ public final class StaffMain extends javax.swing.JFrame {
         jLabel38.setText("Preview");
 
         LabelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/image.jpg"))); // NOI18N
-        LabelImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LabelImage.setBorder(new javax.swing.border.MatteBorder(null));
         LabelImage.setPreferredSize(new java.awt.Dimension(409, 320));
 
         ButtonExitManage2.setText("Exit");
@@ -1163,6 +1170,7 @@ public final class StaffMain extends javax.swing.JFrame {
         ComboBoxKindOfRoom.setEnabled(true);
         TextSize.setEnabled(true);
         TextPaneDescription.setEnabled(true);
+        TextFieldPrice.setEnabled(true);
         RadioButtonAllInclude.setEnabled(true);
         RadioButtonSeaView.setEnabled(true);
         RadioButtonSmoke.setEnabled(true);
@@ -1326,6 +1334,7 @@ public final class StaffMain extends javax.swing.JFrame {
         ComboBoxKindOfRoom.setEnabled(false);
         TextSize.setEnabled(false);
         TextPaneDescription.setEnabled(false);
+        TextFieldPrice.setEnabled(false);
         RadioButtonAllInclude.setEnabled(false);
         RadioButtonSeaView.setEnabled(false);
         RadioButtonSmoke.setEnabled(false);
@@ -1371,13 +1380,15 @@ public final class StaffMain extends javax.swing.JFrame {
                 }else{
                     ComboBoxHotelHourOfCheckOutManage.setSelectedIndex(2);
                 }
-
-                if(hotels.get(i).getAccommodationType().equals("Mountain")){
+                
+                if(hotels.get(i).getAccommodationType().equals("Cabin")){
                     ComboBoxHotelKindOfLodgingManage.setSelectedIndex(0);
-                }else if(hotels.get(i).getAccommodationType().equals("Beach")){
+                }else if(hotels.get(i).getAccommodationType().equals("Hotel")){
                     ComboBoxHotelKindOfLodgingManage.setSelectedIndex(1);
-                }else{
+                }else if(hotels.get(i).getAccommodationType().equals("Hostel")){
                     ComboBoxHotelKindOfLodgingManage.setSelectedIndex(2);
+                }else{
+                    ComboBoxHotelKindOfLodgingManage.setSelectedIndex(3);
                 }
 
                 ComboBoxHotelStarsManage.setSelectedIndex(hotels.get(i).getNumberStars()-1);
@@ -1602,6 +1613,10 @@ public final class StaffMain extends javax.swing.JFrame {
         Consult8.setTitle( "List of rooms (with prices) available at a hotel in a period seen by the user");
         Consult8.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void ComboBoxHotelKindOfLodgingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxHotelKindOfLodgingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxHotelKindOfLodgingActionPerformed
 
     public void setHotels(){
         ComboBoxListHotels.removeAllItems();

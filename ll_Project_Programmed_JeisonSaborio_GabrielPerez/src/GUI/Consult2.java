@@ -25,6 +25,7 @@ public class Consult2 extends javax.swing.JFrame {
      */
     public Consult2() {
         initComponents();
+        setHotels();
     }
 
     public void setHotels(){
