@@ -135,52 +135,5 @@ public class SeasonTest {
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of getAmount method, of class Season.
-     */
-    @Test
-    public void testGetAmount() {
-        System.out.println("GetAmount");
-        int expResult = 50;
-        season.setAmount(expResult);
-        int result = season.getAmount();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of setAmount method, of class Season.
-     */
-    @Test
-    public void testSetAmount() {
-         System.out.println("SetAmount");
-        int expResult = 50;
-        season.setAmount(expResult);
-        int result = season.getAmount();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of getTypeRoom method, of class Season.
-     */
-    @Test
-    public void testGetTypeRoom() {
-        System.out.println("GetTypeRoom");
-        String expResult = "Individual";
-        season.setTypeRoom(expResult);
-        String result = season.getTypeRoom();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of setTypeRoom method, of class Season.
-     */
-    @Test
-    public void testSetTypeRoom() {
-        System.out.println("SetTypeRoom");
-        String expResult = "Suite";
-        season.setTypeRoom(expResult);
-        String result = season.getTypeRoom();
-        assertEquals(expResult, result);
-    }
-    
+   
 }

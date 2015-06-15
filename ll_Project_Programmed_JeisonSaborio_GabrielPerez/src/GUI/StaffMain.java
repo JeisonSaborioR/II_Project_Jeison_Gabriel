@@ -144,15 +144,11 @@ public final class StaffMain extends javax.swing.JFrame {
         ComboBoxSeasons = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        ComboBoxRooms = new javax.swing.JComboBox();
-        jLabel29 = new javax.swing.JLabel();
-        TextFieldPercentOff = new javax.swing.JTextField();
         ButtonSaveSeason = new javax.swing.JButton();
         DateChooserStartDate = new com.toedter.calendar.JDateChooser();
         DateChooserDepartureDate = new com.toedter.calendar.JDateChooser();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         TextFieldPrice = new javax.swing.JTextField();
         ButtonExitManage1 = new javax.swing.JButton();
@@ -719,8 +715,13 @@ public final class StaffMain extends javax.swing.JFrame {
 
         ComboBoxSeasons.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "High season (+25%)", "Low season (normal)", "Green season (-50%)" }));
         ComboBoxSeasons.setEnabled(false);
+        ComboBoxSeasons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxSeasonsActionPerformed(evt);
+            }
+        });
         jPanel4.add(ComboBoxSeasons);
-        ComboBoxSeasons.setBounds(600, 60, 134, 24);
+        ComboBoxSeasons.setBounds(680, 60, 134, 24);
 
         jButton1.setText("Add seasons");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -729,22 +730,9 @@ public final class StaffMain extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton1);
-        jButton1.setBounds(710, 10, 99, 25);
+        jButton1.setBounds(690, 10, 99, 25);
         jPanel4.add(jSeparator2);
         jSeparator2.setBounds(310, 170, 268, 10);
-
-        ComboBoxRooms.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suit", "Double", "Individual" }));
-        ComboBoxRooms.setEnabled(false);
-        jPanel4.add(ComboBoxRooms);
-        ComboBoxRooms.setBounds(750, 60, 134, 24);
-
-        jLabel29.setText("Percent off");
-        jPanel4.add(jLabel29);
-        jLabel29.setBounds(610, 260, 54, 15);
-
-        TextFieldPercentOff.setEnabled(false);
-        jPanel4.add(TextFieldPercentOff);
-        TextFieldPercentOff.setBounds(720, 260, 34, 19);
 
         ButtonSaveSeason.setText("Save");
         ButtonSaveSeason.setEnabled(false);
@@ -771,10 +759,6 @@ public final class StaffMain extends javax.swing.JFrame {
         jLabel31.setText("Departure date");
         jPanel4.add(jLabel31);
         jLabel31.setBounds(610, 180, 72, 15);
-
-        jLabel39.setText("%");
-        jPanel4.add(jLabel39);
-        jLabel39.setBounds(760, 260, 10, 26);
 
         jLabel40.setText("Price");
         jPanel4.add(jLabel40);
@@ -1082,54 +1066,31 @@ public final class StaffMain extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonExitManage1ActionPerformed
 
     private void ButtonSaveSeasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveSeasonActionPerformed
-        if(TextFieldPercentOff.getText().isEmpty() || DateChooserDepartureDate.getDate().toString().isEmpty() || DateChooserStartDate.getDate().toString().isEmpty()  ){
+        if(DateChooserDepartureDate.getDate().toString().isEmpty() || DateChooserStartDate.getDate().toString().isEmpty()  ){
             JOptionPane.showMessageDialog(this,"Please complete all text fields");
             return;
         }
         String hotel= ComboBoxListHotels.getSelectedItem().toString();
         String startDate = DateChooserStartDate.getDate().toString();
         String departureDate = DateChooserDepartureDate.getDate().toString();
-        String room = ComboBoxRooms.getSelectedItem().toString();
         String season ;
         String codeNewSeason;
 
         if(ComboBoxSeasons.getSelectedIndex() == 0 ){
             season = "High season";
 
-            if(ComboBoxRooms.getSelectedIndex() == 0){
-                codeNewSeason = "s1";
-            }else if(ComboBoxRooms.getSelectedIndex() == 1){
-                codeNewSeason = "s2";
-            }else{
-                codeNewSeason = "s3";
-            }
+            codeNewSeason = "s1";
+            
 
         }else if(ComboBoxSeasons.getSelectedIndex() == 1){
             season = "Low Season";
-            if(ComboBoxRooms.getSelectedIndex() == 0){
-                codeNewSeason = "d1";
-            }else if(ComboBoxRooms.getSelectedIndex() == 1){
-                codeNewSeason = "d2";
-            }else{
-                codeNewSeason = "d3";
-            }
+            
+            codeNewSeason = "s2";
+            
         }else{
             season = "Green season";
-            if(ComboBoxRooms.getSelectedIndex() == 0){
-                codeNewSeason = "i1";
-            }else if(ComboBoxRooms.getSelectedIndex() == 1){
-                codeNewSeason = "i2";
-            }else{
-                codeNewSeason = "i3";
-            }
-        }
-
-        int price = 0;
-        try {
-            price = Integer.parseInt(TextFieldPercentOff.getText());
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Please enter just numbers in 'Price $'");
+            
+            codeNewSeason = "s3";
         }
 
         ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
@@ -1138,26 +1099,26 @@ public final class StaffMain extends javax.swing.JFrame {
             if(hotels.get(i).getName().equals(hotel)) {
                 seasons = hotels.get(i).getSeasonList();
                 for (int j = 0; j < seasons.size(); j++) {
-                    if(seasons.get(j).getCode().equals(codeNewSeason)  && seasons.get(j).getTypeRoom().equals(room)){
+                    if(seasons.get(j).getCode().equals(codeNewSeason)){
                         JOptionPane.showMessageDialog(this, "The season code already exists");
                         return;
                     }
                 }
-                Season newSeason = new Season(season, codeNewSeason, startDate, departureDate, price, room);
+                Season newSeason = new Season(season, codeNewSeason, startDate, departureDate);
                 GlobalVariables.getInstance().addSeasonsToHotel(i, newSeason);
                 JOptionPane.showMessageDialog(this, "Season was added");
                 break;
             }
         }
 
-        TextFieldPercentOff.setText(null);
+       
     }//GEN-LAST:event_ButtonSaveSeasonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         ComboBoxSeasons.setEnabled(true);
-        ComboBoxRooms.setEnabled(true);
-        TextFieldPercentOff.setEnabled(true);
+        
+    
         ButtonSaveSeason.setEnabled(true);
         DateChooserStartDate.setEnabled(true);
         DateChooserDepartureDate.setEnabled(true);
@@ -1618,6 +1579,10 @@ public final class StaffMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxHotelKindOfLodgingActionPerformed
 
+    private void ComboBoxSeasonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxSeasonsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxSeasonsActionPerformed
+
     public void setHotels(){
         ComboBoxListHotels.removeAllItems();
         ComboBoxListHotels1.removeAllItems();
@@ -1716,7 +1681,6 @@ public final class StaffMain extends javax.swing.JFrame {
     private javax.swing.JComboBox ComboBoxListHotels;
     private javax.swing.JComboBox ComboBoxListHotels1;
     private javax.swing.JComboBox ComboBoxListHotels2;
-    private javax.swing.JComboBox ComboBoxRooms;
     private javax.swing.JComboBox ComboBoxSeasons;
     private com.toedter.calendar.JDateChooser DateChooserDepartureDate;
     private com.toedter.calendar.JDateChooser DateChooserStartDate;
@@ -1727,7 +1691,6 @@ public final class StaffMain extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadioButtonTerrace;
     private javax.swing.JTextField TextCodeAttraction;
     private javax.swing.JTextField TextCodeService;
-    private javax.swing.JTextField TextFieldPercentOff;
     private javax.swing.JTextField TextFieldPrice;
     private javax.swing.JTextField TextHotelAddress;
     private javax.swing.JTextField TextHotelAddressManage;
@@ -1783,7 +1746,6 @@ public final class StaffMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -1794,7 +1756,6 @@ public final class StaffMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
