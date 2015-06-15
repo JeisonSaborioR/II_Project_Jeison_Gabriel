@@ -14,8 +14,9 @@ public class Reservation {
     private int amountChildren;
     private int amountAdults;
     private Person customer;
+    private boolean paid;
 
-    public Reservation(String entryDate, String departureDate, int nightsDuration, ArrayList roomsList, ArrayList<String> hostedList, int amountChildren, int amountAdults, Person customer) {
+    public Reservation(String entryDate, String departureDate, int nightsDuration, ArrayList roomsList, ArrayList<String> hostedList, int amountChildren, int amountAdults, Person customer, boolean paid ) {
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.nightsDuration = nightsDuration;
@@ -24,7 +25,7 @@ public class Reservation {
         this.amountChildren = amountChildren;
         this.amountAdults = amountAdults;
         this.customer = customer;
-        
+        this.paid = paid;
     }
 
   
@@ -93,6 +94,14 @@ public class Reservation {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
     }
     
     public void reservationHotel(Reservation reservation){
