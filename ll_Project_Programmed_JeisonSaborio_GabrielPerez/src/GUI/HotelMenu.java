@@ -342,9 +342,14 @@ public final class HotelMenu extends javax.swing.JFrame {
                 LogInmMenu logInMenu = new LogInmMenu();
                 logInMenu.setVisible(true);   
                 this.dispose();
+                
             }else{
+                ReservationMenu reservationMenu = new ReservationMenu();
+                reservationMenu.setVisible(true);
+                this.dispose();
                 
             }
+            
            
         }    
     }//GEN-LAST:event_BtoReservationActionPerformed

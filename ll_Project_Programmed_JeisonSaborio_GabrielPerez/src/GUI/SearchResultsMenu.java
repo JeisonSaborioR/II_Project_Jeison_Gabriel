@@ -252,12 +252,8 @@ public class SearchResultsMenu extends javax.swing.JFrame {
                     hotelMenu.setVisible(true);
                     this.dispose();
                     return;
-                }else{
-                    ReservationMenu reservationMenu = new ReservationMenu();
-                    reservationMenu.setVisible(true);
-                    this.dispose();
-                    return;
                 }
+           
             }
         }
     }//GEN-LAST:event_BtoContinueActionPerformed
