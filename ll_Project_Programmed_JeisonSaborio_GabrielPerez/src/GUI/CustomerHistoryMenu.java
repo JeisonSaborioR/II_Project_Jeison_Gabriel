@@ -17,7 +17,7 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
  *
  * @author Jeison
  */
-public class CustomerHistoryMenu extends javax.swing.JFrame {
+public final class CustomerHistoryMenu extends javax.swing.JFrame {
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     DefaultTableModel tableCustomerHistory;
     String data3[][] = {};
@@ -27,6 +27,7 @@ public class CustomerHistoryMenu extends javax.swing.JFrame {
         initComponents();
         tableCustomerHistory = new DefaultTableModel(data3,cabeza3);
         TabCustomerHistory.setModel(tableCustomerHistory);
+        loadCustomerReservation();
     }
 
     /**

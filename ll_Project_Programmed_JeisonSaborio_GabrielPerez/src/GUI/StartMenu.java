@@ -11,6 +11,7 @@ import java.util.Calendar;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public final class StartMenu extends javax.swing.JFrame {
@@ -299,8 +300,17 @@ public final class StartMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         GlobalVariables.getInstance().entryDate =  dateFormat.format(DateCheckIn.getDate());
+        if(GlobalVariables.getInstance().entryDate.equals("")){
+            JOptionPane.showMessageDialog(this,"Select entryDate ");
+            return;
+        }
         GlobalVariables.getInstance().departureDate = dateFormat.format(DateCheckOut.getDate()); 
+        if(GlobalVariables.getInstance().departureDate.equals("")){
+            JOptionPane.showMessageDialog(this,"Select departureDate ");
+            return;
+        }
         GlobalVariables.getInstance().numberRooms = Integer.parseInt(CobRooms.getSelectedItem().toString());
+        
         GlobalVariables.getInstance().amountAdults = Integer.parseInt(CobAdults.getSelectedItem().toString());
         GlobalVariables.getInstance().amountChildren = Integer.parseInt(CobChildren.getSelectedItem().toString());
         int startday = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[0]);
@@ -316,10 +326,16 @@ public final class StartMenu extends javax.swing.JFrame {
         departureDate.set(departureyear, departuremonth, departureday);
         c.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
         GlobalVariables.getInstance().nightsDuration = c.get(Calendar.DAY_OF_YEAR);
-        SearchResultsMenu searchResultsMenu = new SearchResultsMenu();
-        searchResultsMenu.loardHotel(textAutoAcompleter.getItemSelected().toString());
-        searchResultsMenu.setVisible(true);
-        this.dispose();
+            if(textAutoAcompleter.getItemSelected().toString().equals("")){
+                JOptionPane.showMessageDialog(this,"Sorry address not found");
+               
+               
+            }else{
+                SearchResultsMenu searchResultsMenu = new SearchResultsMenu();
+                searchResultsMenu.loardHotel(textAutoAcompleter.getItemSelected().toString());
+                searchResultsMenu.setVisible(true);
+                this.dispose();     
+            }    
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

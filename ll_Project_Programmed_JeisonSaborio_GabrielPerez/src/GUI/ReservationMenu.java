@@ -101,6 +101,11 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 CobSavedCardsMouseClicked(evt);
             }
         });
+        CobSavedCards.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CobSavedCardsActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Saved cards");
 
@@ -316,7 +321,12 @@ public final class ReservationMenu extends javax.swing.JFrame {
         nameList.add(name);
         TxtName.setText("");
     }//GEN-LAST:event_BtoNameActionPerformed
-
+    public static String ReturnDate(){
+        Date currentDate = new Date();
+        SimpleDateFormat formatoF = new SimpleDateFormat("dd/MM/YYYY");
+        return formatoF.format(currentDate); 
+        
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         int contRooms = 0;
@@ -333,6 +343,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
         boolean response = validateCard(cardNumber);
         if(response == false){
             Card card = new Card(name,lastName,cardType,cardNumber,Integer.parseInt(securityCode),date);
+            GlobalVariables.getInstance().person.getListCards().add(card);
         }
         boolean paid = false;
         if(RadioButtonPaid.isSelected()){
@@ -340,10 +351,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
         }
         for(int i = 0; i < GlobalVariables.getInstance().hotel.getRoomsList().size();i++){
             boolean busy = false;
-            if(GlobalVariables.getInstance().hotel.getReservationList().isEmpty()){
-                roomList.add(GlobalVariables.getInstance().hotel.getRoomsList().get(i));
-                contRooms++;  
-            }
+         
             if(contRooms == GlobalVariables.getInstance().numberRooms){
                 Reservation reservation = new Reservation(GlobalVariables.getInstance().entryDate,
                         GlobalVariables.getInstance().departureDate,
@@ -358,17 +366,20 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 return;
             }
             if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals(GlobalVariables.getInstance().typeRoom)){       
-                for(int j = 0;j<GlobalVariables.getInstance().hotel.getReservationList().size();j++){
-                    
+                JOptionPane.showMessageDialog(this, "Hola");
+                for(int j = 0;j<GlobalVariables.getInstance().hotel.getReservationList().size();j++){    
                     for(int h=0;h<GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().size();h++){
                         if(GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().get(h).getRoomNumber() == GlobalVariables.getInstance().hotel.getRoomsList().get(i).getRoomNumber()){
+                            JOptionPane.showMessageDialog(this, "wtf");
                             try {
                                 Date fechaDate1 = formato.parse(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate());
                                 Date fechaDate2 = formato.parse(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate());
-                                Date fechaDate3 = formato.parse(GlobalVariables.getInstance().entryDate);
+                                Date fechaDate3 = formato.parse(ReturnDate());
                                 if ((fechaDate1.after(fechaDate3)) &&(fechaDate2.after(fechaDate3))){
+                                    JOptionPane.showMessageDialog(this, "wtf");
                                     boolean response1 = validateRoom(j);
                                     if(response1 == true){
+                                        JOptionPane.showMessageDialog(this, "No mames");
                                         busy = true;
                                       
                                  
@@ -391,9 +402,8 @@ public final class ReservationMenu extends javax.swing.JFrame {
 
 
             }        
-        }
-        JOptionPane.showMessageDialog(this, "Hotel without availability");
-            
+        } 
+        JOptionPane.showMessageDialog(this, "Hotel without rooms");
     }//GEN-LAST:event_jButton1ActionPerformed
     public boolean validateRoom(int j){
         Calendar c = Calendar.getInstance();
@@ -421,6 +431,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 for(int x = startday;x <= departureyear ;x++){
                     for(int m = newStartday;m <=newDepartureday;m++ ){
                         if(m==x){
+                            JOptionPane.showMessageDialog(this, "dota");
                             return true;
                         }
                     }
@@ -440,7 +451,18 @@ public final class ReservationMenu extends javax.swing.JFrame {
 
     private void CobSavedCardsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CobSavedCardsMouseClicked
         // TODO add your handling code here:
-        
+        int numberCard = Integer.parseInt(CobCardType.getSelectedItem().toString());
+        for(int i = 0; i < GlobalVariables.getInstance().person.getListCards().size();i++){
+            if(GlobalVariables.getInstance().person.getListCards().get(i).getSecurityCode() ==numberCard ){
+                TxtNameCustomer.setText(GlobalVariables.getInstance().person.getListCards().get(i).getName());
+                TxtLastNameCustomer.setText(GlobalVariables.getInstance().person.getListCards().get(i).getLastName());
+                TxtLastNameCustomer.setText(GlobalVariables.getInstance().person.getListCards().get(i).getLastName());
+                TxtCardType.setText(GlobalVariables.getInstance().person.getListCards().get(i).getCardType());
+                TxtCardNumber.setText(Integer.toString(GlobalVariables.getInstance().person.getListCards().get(i).getCardNumber()));
+                TxtPSecurityCode.setText(Integer.toString(GlobalVariables.getInstance().person.getListCards().get(i).getSecurityCode()));
+                TxtPSecurityCode.setText(GlobalVariables.getInstance().person.getListCards().get(i).getExpirationDate());
+            }
+        }
     }//GEN-LAST:event_CobSavedCardsMouseClicked
 
     private void CobCardTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CobCardTypeMouseClicked
@@ -449,6 +471,10 @@ public final class ReservationMenu extends javax.swing.JFrame {
         TxtCardType.setText(cardType);
         
     }//GEN-LAST:event_CobCardTypeMouseClicked
+
+    private void CobSavedCardsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CobSavedCardsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CobSavedCardsActionPerformed
 
     public boolean validateCard(int cardNumber){
         for(int j = 0; j < GlobalVariables.getInstance().person.getListCards().size();j++){
