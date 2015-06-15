@@ -417,18 +417,23 @@ public final class ReservationMenu extends javax.swing.JFrame {
         Calendar startDate = new GregorianCalendar();
         startDate.set(startyear, startmonth, startday);
         Calendar departureDate = new GregorianCalendar();
-        departureDate.set(departureyear, departuremonth, departureday);
-        c.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
+        departureDate.set(departureyear, departuremonth, departureday);  
+        
+        
         int newStartday = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[0]);
         int newStartmonth = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[1]);
         int newStartyear = Integer.parseInt(GlobalVariables.getInstance().entryDate.split("/")[2]);
         int newDepartureday = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[0]);
         int newDeparturemonth = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[1]);
         int newDepartureyear = Integer.parseInt(GlobalVariables.getInstance().departureDate.split("/")[2]);
-        c1.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
+        Calendar newstartDate = new GregorianCalendar();
+        newstartDate.set(newStartyear, newStartmonth, newStartday);
+        Calendar newdepartureDate = new GregorianCalendar();
+        newdepartureDate.set(newDepartureyear, newStartmonth, newStartday);
+          
         if((startyear == newStartyear) || (startyear == newDepartureyear) || (departureyear == newStartyear)||(departureyear==newDepartureyear)){
             if(((startmonth == newStartmonth) && (departuremonth == newDeparturemonth))){
-                for(int x = startday;x <= departureyear ;x++){
+                for(int x = startday;x <= departureday ;x++){
                     for(int m = newStartday;m <=newDepartureday;m++ ){
                         if(m==x){
                             JOptionPane.showMessageDialog(this, "dota");
@@ -437,11 +442,46 @@ public final class ReservationMenu extends javax.swing.JFrame {
                     }
                 }
                 
+            }else{
+                JOptionPane.showMessageDialog(this, "Correcto");
+                int daysStart = startDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+                int daysDeparture = departureDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+                for(int i = startday; i <=daysStart;i++){
+                    
+                    daysStart = startDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+                    int newdaysStart = newstartDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+                    int newdaysDeparture = newstartDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+                    for(int y = newStartday;y <= newdaysStart;y++){
+                 
+                        if((i==y)&&(newStartmonth==startmonth)){
+                            return true;
+                        } 
+                        
+                        if((i==newDepartureday)&&(newStartmonth==newDeparturemonth)){
+                            JOptionPane.showMessageDialog(this, "1");
+                            return false;
+                        }
+                        if((i==daysStart)&&(newStartmonth!=newDeparturemonth)){
+                            JOptionPane.showMessageDialog(this, "3");
+                            i=1;
+                            startmonth++;
+                        }
+                        if((y==newdaysStart)&&(newStartmonth!=newDeparturemonth)){
+                            JOptionPane.showMessageDialog(this, "4");
+                            y=1;
+                            newStartmonth++;
+                        }
+                    }
+                }
+                JOptionPane.showMessageDialog(this, "puto metodo");
+                return false;
             }
         }
+        JOptionPane.showMessageDialog(this, "Desgraciado");
         return false;
         
     }
+ 
     private void BtoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoBackActionPerformed
         // TODO add your handling code here:
         CustomerMain customerMain = new CustomerMain();
