@@ -1075,7 +1075,7 @@ public final class StaffMain extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonExitManage1ActionPerformed
 
     private void ButtonSaveSeasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveSeasonActionPerformed
-        if(TextFieldPercentOff.getText().toString().isEmpty() || DateChooserDepartureDate.getDate().toString().isEmpty() || DateChooserStartDate.getDate().toString().isEmpty()  ){
+        if(TextFieldPercentOff.getText().isEmpty() || DateChooserDepartureDate.getDate().toString().isEmpty() || DateChooserStartDate.getDate().toString().isEmpty()  ){
             JOptionPane.showMessageDialog(this,"Please complete all text fields");
             return;
         }
@@ -1119,7 +1119,7 @@ public final class StaffMain extends javax.swing.JFrame {
 
         int price = 0;
         try {
-            price = Integer.parseInt(TextFieldPercentOff.getText().toString());
+            price = Integer.parseInt(TextFieldPercentOff.getText());
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Please enter just numbers in 'Price $'");
@@ -1203,8 +1203,8 @@ public final class StaffMain extends javax.swing.JFrame {
             return;
         }
 
-        String code = TextCodeService.getText().toString();
-        String name = TextNameService.getText().toString();
+        String code = TextCodeService.getText();
+        String name = TextNameService.getText();
 
         String hotel = ComboBoxListHotels.getSelectedItem().toString();
         ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
@@ -1238,8 +1238,8 @@ public final class StaffMain extends javax.swing.JFrame {
             return;
         }
 
-        String code = TextCodeAttraction.getText().toString();
-        String name = TextNameAttraction.getText().toString();
+        String code = TextCodeAttraction.getText();
+        String name = TextNameAttraction.getText();
 
         String hotel = ComboBoxListHotels.getSelectedItem().toString();
         ArrayList<Hotel> hotels = GlobalVariables.getInstance().getAll();
@@ -1281,7 +1281,7 @@ public final class StaffMain extends javax.swing.JFrame {
         int maxPeople = Integer.parseInt(TextMaxOfPeople.getText());
         int size = Integer.parseInt(TextSize.getText());
         int price = Integer.parseInt(TextSize.getText());
-        String description = TextFieldPrice.getText().toString();
+        String description = TextFieldPrice.getText();
         boolean terrace = false;
         boolean seaView = false;
         boolean smoke = false;
