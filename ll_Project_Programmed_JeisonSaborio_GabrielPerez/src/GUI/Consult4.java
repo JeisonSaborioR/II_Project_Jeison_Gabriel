@@ -5,9 +5,14 @@
  */
 package GUI;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
+import ll_project_programmed_jeisonsaborio_gabrielperez.Reservation;
+import ll_project_programmed_jeisonsaborio_gabrielperez.Season;
 
 /**
  *
@@ -77,6 +82,11 @@ public class Consult4 extends javax.swing.JFrame {
         });
 
         jButton2.setText("Search");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,6 +154,105 @@ public class Consult4 extends javax.swing.JFrame {
        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    String hotelName = "" ;       
+    ArrayList<Hotel> hotels = new ArrayList<>();
+    ArrayList<Season> seasons = new ArrayList<>();
+    int seasonToSearch = 0;
+    ArrayList<Reservation> reservations = new ArrayList<>();
+    float incomes = 0;
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        hotelName = ComboBoxListHotels.getSelectedItem().toString();
+        seasonToSearch = ComboBoxSeasons.getSelectedIndex();
+        hotels = GlobalVariables.getInstance().getAll();
+       
+       
+        for (int i = 0; i < hotels.size(); i++) {
+            if(hotels.get(i).getName().equals(hotelName)){
+                seasons = hotels.get(i).getSeasonList();
+                for (int j = 0; j <  hotels.get(i).getReservationList().size(); j++) {
+                    if(intoSeason( hotels.get(i).getReservationList().get(j).getEntryDate(),hotels.get(i).getReservationList().get(j).getDepartureDate(),seasonToSearch,seasons)){
+                        reservations.add( hotels.get(i).getReservationList().get(j));
+                    }
+                }
+            }
+        }
+
+        TextFieldViews.setText(String.valueOf(reservations.size()));
+        
+        for (int i = 0; i < reservations.size(); i++) {
+            for (int j = 0; j < reservations.get(i).getRoomsList().size(); j++) {
+                incomes( reservations.get(i).getRoomsList().get(j).getPrice());
+            }
+        }
+        TextFieldIncome.setText(String.valueOf(incomes));
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void incomes(int price){
+        if(seasonToSearch == 0){
+            incomes += price + ((price * 25)/100);
+        }else if(seasonToSearch == 1){
+           incomes += price;
+        }else{
+            incomes += price - ((price * 50)/100);
+        }
+        
+    }
+    
+    
+    
+    public static boolean intoSeason(String startDate, String endingDate, int seasonToSearch, ArrayList<Season> seasons){
+        String entryDate = "";
+        String departureDate ="";
+        
+        if(seasonToSearch == 0){
+            for (int i = 0; i < seasons.size(); i++) {
+                if (seasons.get(i).getCode().equals("s1")) {
+                    entryDate = seasons.get(i).getStartDate();
+                    departureDate = seasons.get(i).getFinalDate();
+                }
+            }
+        }else if(seasonToSearch == 1){
+            for (int i = 0; i < seasons.size(); i++) {
+                if (seasons.get(i).getCode().equals("s2")) {
+                    entryDate = seasons.get(i).getStartDate();
+                    departureDate = seasons.get(i).getFinalDate();
+                }
+            }
+        }else{
+            for (int i = 0; i < seasons.size(); i++) {
+                if (seasons.get(i).getCode().equals("s3")) {
+                    entryDate = seasons.get(i).getStartDate();
+                    departureDate = seasons.get(i).getFinalDate();
+                }
+            }
+        }
+
+        try {
+
+            SimpleDateFormat formateador2 = new SimpleDateFormat("dd/MM/yyyy"); 
+            Date entryDate1 = formateador2.parse(startDate);
+            Date entryDate2 = formateador2.parse(entryDate);
+            
+            Date endingDate1 = formateador2.parse(endingDate);
+            Date endingDate2 = formateador2.parse(departureDate);
+
+            if ( entryDate1.before(entryDate2) && endingDate2.before(endingDate1) ){
+                return true;
+            }
+        } catch (ParseException e) {
+            System.out.println("Se Produjo un Error!!!  "+e.getMessage());
+            return false;
+        }  
+        return false;
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
