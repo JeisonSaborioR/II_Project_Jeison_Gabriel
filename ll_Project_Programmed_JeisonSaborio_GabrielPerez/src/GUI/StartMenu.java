@@ -53,7 +53,7 @@ public final class StartMenu extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         DateCheckIn = new com.toedter.calendar.JDateChooser();
         DateCheckOut = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        BtoSearch = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         BtoLoginandaccount = new javax.swing.JButton();
 
@@ -168,10 +168,10 @@ public final class StartMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtoSearch.setText("Search");
+        BtoSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtoSearchActionPerformed(evt);
             }
         });
 
@@ -200,8 +200,7 @@ public final class StartMenu extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(DateCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel2)
-                            .addComponent(TxtSearchHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60))
+                            .addComponent(TxtSearchHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -212,7 +211,7 @@ public final class StartMenu extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(BtoLoginandaccount)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(BtoSearch)
                 .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
@@ -236,7 +235,7 @@ public final class StartMenu extends javax.swing.JFrame {
                 .addComponent(PanelHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(BtoSearch)
                     .addComponent(BtoLoginandaccount))
                 .addContainerGap())
         );
@@ -297,18 +296,25 @@ public final class StartMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DateCheckInMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtoSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoSearchActionPerformed
         // TODO add your handling code here:
-        GlobalVariables.getInstance().entryDate =  dateFormat.format(DateCheckIn.getDate());
-        if(GlobalVariables.getInstance().entryDate.equals("")){
+        try{
+            GlobalVariables.getInstance().entryDate =  dateFormat.format(DateCheckIn.getDate());
+           
+        }catch(Exception e){
             JOptionPane.showMessageDialog(this,"Select entryDate ");
             return;
         }
-        GlobalVariables.getInstance().departureDate = dateFormat.format(DateCheckOut.getDate()); 
-        if(GlobalVariables.getInstance().departureDate.equals("")){
-            JOptionPane.showMessageDialog(this,"Select departureDate ");
-            return;
+        
+        try{
+            GlobalVariables.getInstance().departureDate = dateFormat.format(DateCheckOut.getDate()); 
+           
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Select departureDate ");
+           return;
         }
+           
+   
         GlobalVariables.getInstance().numberRooms = Integer.parseInt(CobRooms.getSelectedItem().toString());
         
         GlobalVariables.getInstance().amountAdults = Integer.parseInt(CobAdults.getSelectedItem().toString());
@@ -326,18 +332,21 @@ public final class StartMenu extends javax.swing.JFrame {
         departureDate.set(departureyear, departuremonth, departureday);
         c.setTimeInMillis(departureDate.getTime().getTime() - startDate.getTime().getTime());
         GlobalVariables.getInstance().nightsDuration = c.get(Calendar.DAY_OF_YEAR);
-            if(textAutoAcompleter.getItemSelected().toString().equals("")){
-                JOptionPane.showMessageDialog(this,"Sorry address not found");
-               
-               
-            }else{
-                SearchResultsMenu searchResultsMenu = new SearchResultsMenu();
-                searchResultsMenu.loardHotel(textAutoAcompleter.getItemSelected().toString());
-                searchResultsMenu.setVisible(true);
-                this.dispose();     
-            }    
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+             
+        try{
+            SearchResultsMenu searchResultsMenu = new SearchResultsMenu();
+            searchResultsMenu.loardHotel(textAutoAcompleter.getItemSelected().toString());
+            searchResultsMenu.setVisible(true);
+            this.dispose();   
+           
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Sorry address not found");
+           
+        }
+      
+        
+    }//GEN-LAST:event_BtoSearchActionPerformed
 
     private void DateCheckInPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateCheckInPropertyChange
         // TODO add your handling code here:
@@ -389,6 +398,7 @@ public final class StartMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtoLoginandaccount;
+    private javax.swing.JButton BtoSearch;
     private javax.swing.JComboBox CobAdults;
     private javax.swing.JComboBox CobChildren;
     private javax.swing.JComboBox CobRooms;
@@ -396,7 +406,6 @@ public final class StartMenu extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateCheckOut;
     private javax.swing.JPanel PanelHabitacion1;
     private javax.swing.JTextField TxtSearchHotel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
