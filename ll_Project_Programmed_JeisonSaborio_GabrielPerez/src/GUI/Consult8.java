@@ -6,7 +6,7 @@
 package GUI;
 
 import static GUI.ReservationMenu.ReturnDate;
-import static GUI.ReservationMenu.validateRoom;
+//import static GUI.ReservationMenu.validateRoom;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

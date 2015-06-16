@@ -42,8 +42,23 @@ public class SystemData {
         GlobalVariables.getInstance().addImagesToHotel(0, "/Image/lsgo3.jpg");
         
         
-       
+        GlobalVariables.getInstance().hotelList.get(0).getAttractionList().add(new Attraction("g11","Golf"));
+        GlobalVariables.getInstance().hotelList.get(0).getAttractionList().add(new Attraction("g12","Soccer"));
+        GlobalVariables.getInstance().hotelList.get(1).getAttractionList().add(new Attraction("b51","Mountain"));
+        GlobalVariables.getInstance().hotelList.get(1).getAttractionList().add(new Attraction("b36","Soccer"));
+        GlobalVariables.getInstance().hotelList.get(2).getAttractionList().add(new Attraction("d17","Basketball"));
+        GlobalVariables.getInstance().hotelList.get(2).getAttractionList().add(new Attraction("d11","River"));
+        GlobalVariables.getInstance().hotelList.get(3).getAttractionList().add(new Attraction("L81","Tennis"));
+        GlobalVariables.getInstance().hotelList.get(3).getAttractionList().add(new Attraction("L33","Beach"));
         
+        GlobalVariables.getInstance().hotelList.get(0).getServiceList().add(new Service("s1","WiFi"));
+        GlobalVariables.getInstance().hotelList.get(0).getServiceList().add(new Service("s2","SPA"));
+        GlobalVariables.getInstance().hotelList.get(1).getServiceList().add(new Service("s1","WiFi"));
+        GlobalVariables.getInstance().hotelList.get(1).getServiceList().add(new Service("s2","Breakfast"));
+        GlobalVariables.getInstance().hotelList.get(2).getServiceList().add(new Service("s1","WiFi"));
+        GlobalVariables.getInstance().hotelList.get(2).getServiceList().add(new Service("s2","Free kids club"));
+        GlobalVariables.getInstance().hotelList.get(3).getServiceList().add(new Service("s1","WiFi"));
+        GlobalVariables.getInstance().hotelList.get(3).getServiceList().add(new Service("s2","Center conference"));
         
         GlobalVariables.getInstance().hotelList.get(2).getRoomsList().add(new Room (1,new TypeRoom("Individual",2,12,"asd",true,false,true,true),6000));
         GlobalVariables.getInstance().hotelList.get(2).getRoomsList().add(new Room (2,new TypeRoom("Double",2,12,"asd",true,false,true,false),7000));
