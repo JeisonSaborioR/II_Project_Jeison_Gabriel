@@ -7,6 +7,7 @@ package GUI;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 
@@ -17,7 +18,7 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 public class PhotosHotel extends javax.swing.JFrame {
 
     
-     int position = 0; 
+    int position = 0; 
     public PhotosHotel() {
         initComponents();
         addImage();
@@ -64,33 +65,39 @@ public class PhotosHotel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LabelImages, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(161, 161, 161))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(161, 161, 161))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(29, 29, 29)))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(176, 265, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(29, 29, 29)))
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(LabelImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LabelImages, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
                         .addComponent(jButton1)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton3)
                             .addComponent(jButton2))
-                        .addContainerGap(52, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -115,13 +122,18 @@ public class PhotosHotel extends javax.swing.JFrame {
     
     public void addImage(){
         ArrayList<String> images = GlobalVariables.getInstance().hotel.getPhotos();
+       
+        
         if(position> images.size()){
             position = images.size();
             return;
         }
-        ImageIcon imageIcon = new ImageIcon(images.get(position));
-        ImageIcon tempImage = new ImageIcon(imageIcon.getImage().getScaledInstance(409, -1, Image.SCALE_DEFAULT));
-        LabelImages.setIcon(tempImage);
+        
+        Icon icon=new ImageIcon(getClass().getResource(images.get(position)));
+        
+        //ImageIcon imageIcon = new ImageIcon(images.get(position));
+        //ImageIcon tempImage = new ImageIcon(icon.getImage().getScaledInstance(409, -1, Image.SCALE_DEFAULT));
+        LabelImages.setIcon(icon);
         
     }
     
