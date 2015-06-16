@@ -135,6 +135,9 @@ public class Consult2 extends javax.swing.JFrame {
     String hotel;
      
     ArrayList<Reservation> reservations = new ArrayList<>();
+    
+    
+    //Here reserves are extracted hotels
     private void ButtonListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonListActionPerformed
 
         hotel = ComboBoxListHotels.getSelectedItem().toString();
@@ -159,7 +162,8 @@ public class Consult2 extends javax.swing.JFrame {
             reservationsCancelled();
         }
     }//GEN-LAST:event_ButtonListActionPerformed
-
+    
+    //This method calculates if the reservation is in the month consultation
     public static boolean getMontMonth(String entryDate, String DepartureDate, int month){
         
         String[] parts = entryDate.split("/");
@@ -174,6 +178,7 @@ public class Consult2 extends javax.swing.JFrame {
         return false;
     }
     
+    //here they are seeking outstanding reservations
     public void reservationsPending( ){
         String []fila= new String[3];
         String[]titulos = {"Hotel","Entry Date","Departure Date"};
@@ -194,6 +199,7 @@ public class Consult2 extends javax.swing.JFrame {
             }   
         }
     }
+    //Reservations canceled (payments) here  are sought 
     public void reservationsCancelled( ){
         String []fila= new String[3];
         String[]titulos = {"Hotel","Entry Date","Departure Date"};
@@ -215,6 +221,7 @@ public class Consult2 extends javax.swing.JFrame {
         }        
     }
     
+    //here are searched reserves which their departure has expired
     public void reservationsCompleted( ){
         String []fila= new String[3];
         String[]titulos = {"Hotel","Entry Date","Departure Date"};
@@ -236,7 +243,7 @@ public class Consult2 extends javax.swing.JFrame {
         }
     }
     
-    
+    //This method is used to compare dates
     public static boolean compare(String date){
         Date fechaActual = new Date();
         SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");

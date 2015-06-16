@@ -162,6 +162,9 @@ public class Consult4 extends javax.swing.JFrame {
     ArrayList<Reservation> reservations = new ArrayList<>();
     float incomes = 0;
     
+    
+    
+    //This method can make the gain of a hotel in a particular month, plus the number of visits
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         hotelName = ComboBoxListHotels.getSelectedItem().toString();
         seasonToSearch = ComboBoxSeasons.getSelectedIndex();
@@ -192,6 +195,8 @@ public class Consult4 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //In this method it is added or subtracted in percentage to 
+    //the total gain depending on the season when you are
     public void incomes(int price){
         if(seasonToSearch == 0){
             incomes += price + ((price * 25)/100);
@@ -204,7 +209,7 @@ public class Consult4 extends javax.swing.JFrame {
     }
     
     
-    
+    //booking dates with the dates of the seasons are checked, to know it is in any season
     public static boolean intoSeason(String startDate, String endingDate, int seasonToSearch, ArrayList<Season> seasons){
         String entryDate = "";
         String departureDate ="";

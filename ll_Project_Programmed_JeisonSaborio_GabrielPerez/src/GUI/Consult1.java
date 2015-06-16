@@ -126,6 +126,8 @@ public class Consult1 extends javax.swing.JFrame {
     
     ArrayList<Reservation> reservations = new ArrayList<>();
     String customer;
+    
+    //Here reserves are extracted customers
     private void ButtonListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonListActionPerformed
         
         String emailAddress = TextFieldEmailOfCustomer.getText().toString();
@@ -146,6 +148,10 @@ public class Consult1 extends javax.swing.JFrame {
             reservationsCancelled();
         }
     }//GEN-LAST:event_ButtonListActionPerformed
+   
+    
+    
+    //here they are seeking outstanding reservations
     public void reservationsPending( ){
         String []fila= new String[3];
         String[]titulos = {"Customer","Entry Date","Departure Date"};
@@ -166,6 +172,9 @@ public class Consult1 extends javax.swing.JFrame {
             }   
         }
     }
+    
+    
+    //Reservations canceled (payments) here  are sought 
     public void reservationsCancelled( ){
         String []fila= new String[3];
         String[]titulos = {"Customer","Entry Date","Departure Date"};
@@ -187,6 +196,8 @@ public class Consult1 extends javax.swing.JFrame {
         }        
     }
     
+    
+    //here are searched reserves which their departure has expired
     public void reservationsCompleted( ){
         String []fila= new String[3];
         String[]titulos = {"Customer","Entry Date","Departure Date"};
@@ -209,6 +220,7 @@ public class Consult1 extends javax.swing.JFrame {
     }
     
     
+    //This method is used to compare dates
     public static boolean compare(String date){
         Date fechaActual = new Date();
         SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");

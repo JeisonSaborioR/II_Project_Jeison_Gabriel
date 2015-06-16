@@ -99,7 +99,8 @@ public class Consult3 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    //Hotels in this method and amount of reserves is obtained to remove the 10 hotels with more reserves
     public void topTen(){
         String []fila= new String[3];
         String[]titulos = {"Name","Country", "Reservations"};
