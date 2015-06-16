@@ -431,20 +431,17 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 return;
             }
             if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals(GlobalVariables.getInstance().typeRoom)){       
-                JOptionPane.showMessageDialog(this, "Hola");
                 for(int j = 0;j<GlobalVariables.getInstance().hotel.getReservationList().size();j++){    
                     for(int h=0;h<GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().size();h++){
                         if(GlobalVariables.getInstance().hotel.getReservationList().get(j).getRoomsList().get(h).getRoomNumber() == GlobalVariables.getInstance().hotel.getRoomsList().get(i).getRoomNumber()){
-                            JOptionPane.showMessageDialog(this, "wtf");
                             try {
                                 Date fechaDate1 = formato.parse(GlobalVariables.getInstance().hotel.getReservationList().get(j).getEntryDate());
                                 Date fechaDate2 = formato.parse(GlobalVariables.getInstance().hotel.getReservationList().get(j).getDepartureDate());
                                 Date fechaDate3 = formato.parse(ReturnDate());
                                 if ((fechaDate1.after(fechaDate3)) &&(fechaDate2.after(fechaDate3))){
-                                    JOptionPane.showMessageDialog(this, "wtf");
+                              
                                     boolean response1 = validateRoom(j);
                                     if(response1 == true){
-                                        JOptionPane.showMessageDialog(this, "No mames");
                                         busy = true;
                                       
                                  

@@ -5,6 +5,12 @@
  */
 package GUI;
 
+import static GUI.ReservationMenu.ReturnDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
 
@@ -13,10 +19,11 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.GlobalVariables;
  * @author Gabriel
  */
 public final class Consult7 extends javax.swing.JFrame {
-
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     DefaultTableModel tableReservationCanceled;
     String data1[][] = {};
     String cabeza1[] = {"Name","Email Address","EntryDate","DepartureDate","NightsDuration"};
+    
     DefaultTableModel tableReservationComplete;
     String data2[][] = {};
     String cabeza2[] = {"Name","Email Address","EntryDate","DepartureDate","NightsDuration"};
@@ -24,9 +31,11 @@ public final class Consult7 extends javax.swing.JFrame {
         initComponents();
         tableReservationCanceled = new DefaultTableModel(data1,cabeza1);
         TabReservationCanceled.setModel(tableReservationCanceled);
+        
         tableReservationComplete = new DefaultTableModel(data2,cabeza2);
         TabReservationComplete.setModel(tableReservationComplete);
         loadReservationCancelated();
+        loadReservationComplete();
         
     }
 
@@ -121,18 +130,36 @@ public final class Consult7 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void loadReservationCancelated(){
-        for(int i = 0; i < GlobalVariables.getInstance().reservationList.size();i++){
-            Object datos[] = {GlobalVariables.getInstance().reservationList.get(i).getCustomer().getName(),
-                GlobalVariables.getInstance().reservationList.get(i).getCustomer().getEmailAddress(),
-                GlobalVariables.getInstance().reservationList.get(i).getEntryDate(),
-                GlobalVariables.getInstance().reservationList.get(i).getDepartureDate(),
-                GlobalVariables.getInstance().reservationList.get(i).getNightsDuration()};
-            tableReservationCanceled.addRow(datos);
+        for(int i = 0; i < GlobalVariables.getInstance().canceleteReservation.size();i++){
+            Object datos[] = {GlobalVariables.getInstance().canceleteReservation.get(i).getCustomer().getName(),
+                GlobalVariables.getInstance().canceleteReservation.get(i).getCustomer().getEmailAddress(),
+                GlobalVariables.getInstance().canceleteReservation.get(i).getEntryDate(),
+                GlobalVariables.getInstance().canceleteReservation.get(i).getDepartureDate(),
+                GlobalVariables.getInstance().canceleteReservation.get(i).getNightsDuration()};
+                tableReservationCanceled.addRow(datos);
         }
     }
     public void loadReservationComplete(){
         for(int i =0;i< GlobalVariables.getInstance().hotelList.size();i++ ){
-            
+            for(int j =0; j<GlobalVariables.getInstance().hotelList.get(i).getReservationList().size();j++){
+                try{
+                    
+                    Date fechaDate1 = formato.parse(GlobalVariables.getInstance().hotelList.get(i).getReservationList().get(j).getEntryDate());
+                    Date fechaDate2 = formato.parse(GlobalVariables.getInstance().hotelList.get(i).getReservationList().get(j).getDepartureDate());
+                    Date fechaDate3 = formato.parse(ReservationMenu.ReturnDate());
+                    if ((fechaDate1.before(fechaDate3)) &&(fechaDate2.before(fechaDate3))){
+                        Object datos[] = {GlobalVariables.getInstance().hotelList.get(i).getReservationList().get(j).getCustomer().getName(),
+                        GlobalVariables.getInstance().hotelList.get(i).getReservationList().get(j).getCustomer().getEmailAddress(),
+                        GlobalVariables.getInstance().hotelList.get(i).getReservationList().get(j).getEntryDate(),
+                        GlobalVariables.getInstance().hotelList.get(i).getReservationList().get(j).getDepartureDate(),
+                        GlobalVariables.getInstance().hotelList.get(i).getReservationList().get(j).getNightsDuration()};
+                        tableReservationComplete.addRow(datos);
+                    }
+                }catch (ParseException ex) {
+                        Logger.getLogger(ReservationMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+             
         }
     }
     private void BtoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoBackActionPerformed

@@ -17,6 +17,9 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
  *
  * @author Gabriel
  */
+
+//class used for handling the inquiries
+//We initialize models tables
 public final class Consult5 extends javax.swing.JFrame {
     String[] month = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Nombiembre","Diciembre"};
     DefaultTableModel tableSearchHotels;
@@ -123,7 +126,7 @@ public final class Consult5 extends javax.swing.JFrame {
         staffMain.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtoBackActionPerformed
-
+//allows the path of the lists and validate dates to display the month
     private void BtoSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoSearchActionPerformed
         // TODO add your handling code here:
         ArrayList<Consultation> MonthList= new ArrayList();
@@ -163,7 +166,7 @@ public final class Consult5 extends javax.swing.JFrame {
         
         Collections.sort(MonthList, new Comparator<Consultation>() {
 
-            @Override
+            @Override  //sorts the list
             public int compare(Consultation t, Consultation t1) {
                  return new Integer (t1.getCant()).compareTo((t.getCant()));
             }
