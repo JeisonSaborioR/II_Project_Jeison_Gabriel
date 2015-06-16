@@ -340,12 +340,12 @@ public final class ReservationMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         int contRooms = 0;
-    
+        double amount = 0;
         ArrayList<Room> roomList;
         roomList = new ArrayList();
         String name = TxtNameCustomer.getText();
         String lastName = TxtLastNameCustomer.getText();
-        
+       
         cardType = TxtCardType.getText();
         int cardNumber = Integer.parseInt(TxtCardNumber.getText());
         String securityCode = new String (TxtPSecurityCode.getPassword());
@@ -361,14 +361,59 @@ public final class ReservationMenu extends javax.swing.JFrame {
         }
         for(int i = 0; i < GlobalVariables.getInstance().hotel.getRoomsList().size();i++){
             boolean busy = false;
-         
+            
             if(contRooms == GlobalVariables.getInstance().numberRooms){
+               
+                for(int l = 0; l < GlobalVariables.getInstance().hotel.getSeasonList().size();l++ ){
+                  
+                    try {
+                        JOptionPane.showMessageDialog(this, "Entre");
+                        Date fecha1 = formato.parse(GlobalVariables.getInstance().hotel.getSeasonList().get(l).getStartDate());
+                        Date fecha2 = formato.parse(GlobalVariables.getInstance().hotel.getSeasonList().get(l).getFinalDate());
+                        Date fecha3 = formato.parse(ReturnDate());
+                        if ((fecha1.after(fecha3)) &&(fecha2.before(fecha3))){
+                            if(GlobalVariables.getInstance().hotel.getSeasonList().get(l).getName().equals("High season")){
+                                if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals( GlobalVariables.getInstance().typeRoom)){
+                                    amount = GlobalVariables.getInstance().hotel.getRoomsList().get(i).getPrice();
+                                    amount +=  (GlobalVariables.getInstance().numberRooms*GlobalVariables.getInstance().nightsDuration)*(amount+(amount*0.25));
+                                }
+
+                            }else if(GlobalVariables.getInstance().hotel.getSeasonList().get(l).getName().equals("Green season")){
+                                if(GlobalVariables.getInstance().hotel.getRoomsList().get(i).getTypeRoom().getName().equals( GlobalVariables.getInstance().typeRoom)){
+                                    amount = GlobalVariables.getInstance().hotel.getRoomsList().get(i).getPrice();
+                                    amount +=  (GlobalVariables.getInstance().numberRooms*GlobalVariables.getInstance().nightsDuration)*(amount+(amount*0.25));
+                                }
+
+                            }else{
+                     
+                                amount = GlobalVariables.getInstance().hotel.getRoomsList().get(i).getPrice();
+                                amount += (GlobalVariables.getInstance().numberRooms*GlobalVariables.getInstance().nightsDuration)*amount;
+                                
+                            }
+                        }else{
+                            amount = GlobalVariables.getInstance().hotel.getRoomsList().get(i).getPrice();
+                            amount += (GlobalVariables.getInstance().numberRooms*GlobalVariables.getInstance().nightsDuration)*amount;
+                            
+                        }
+                        
+                    } catch (ParseException ex) {
+                        
+                        Logger.getLogger(ReservationMenu.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                   
+                      
+                }
+                if(amount ==0){
+                    amount = GlobalVariables.getInstance().hotel.getRoomsList().get(i).getPrice();
+                    amount += (GlobalVariables.getInstance().numberRooms*GlobalVariables.getInstance().nightsDuration)*amount;
+                }
+                JOptionPane.showMessageDialog(this, amount);
                 Reservation reservation = new Reservation(GlobalVariables.getInstance().entryDate,
                         GlobalVariables.getInstance().departureDate,
                         GlobalVariables.getInstance().nightsDuration,
                         roomList,nameList,GlobalVariables.getInstance().amountChildren,
                         GlobalVariables.getInstance().amountAdults,
-                        GlobalVariables.getInstance().person,paid );
+                        GlobalVariables.getInstance().person,paid,amount);
                 reservation.reservationHotel(reservation);
                 CustomerMain customerMain = new CustomerMain();
                 customerMain.setVisible(true);

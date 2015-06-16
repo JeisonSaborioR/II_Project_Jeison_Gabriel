@@ -18,7 +18,7 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.Hotel;
  * @author Gabriel
  */
 public final class Consult5 extends javax.swing.JFrame {
-    String[] month = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiempre","Octubre","Nombiembre","Diciembre"};
+    String[] month = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Nombiembre","Diciembre"};
     DefaultTableModel tableSearchHotels;
     String data1[][] = {};
     String cabeza1[] = {"Month","Amount reservation"};
@@ -149,7 +149,7 @@ public final class Consult5 extends javax.swing.JFrame {
                     
                              
                     }
-                    Consultation consultation = new Consultation(cont,Contmonth);
+                    Consultation consultation = new Consultation(cont,Contmonth-1);
                     MonthList.add(consultation);
                     cont=0;
                 }
@@ -175,7 +175,7 @@ public final class Consult5 extends javax.swing.JFrame {
                 return;
             }
             if(MonthList.get(y).getCant() != 0){
-                for(int m=0;m<month.length;m++){
+                for(int m=0;m<month.length-1;m++){
                     if(MonthList.get(y).getMonth()==m){
                         Object datos[] = {month[m],MonthList.get(y).getCant()};
                         tableSearchHotels.addRow(datos);
