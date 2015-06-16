@@ -24,7 +24,7 @@ import ll_project_programmed_jeisonsaborio_gabrielperez.Room;
  * @author Jeison
  */
 public final class ReservationMenu extends javax.swing.JFrame {
-    public  ArrayList<String> nameList;
+    public ArrayList<String> nameList = new ArrayList<>();
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     String cardType;
     /**
@@ -325,8 +325,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
 
  
     private void BtoNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtoNameActionPerformed
-
-       
+ 
         String name = TxtName.getText();
         nameList.add(name);
         TxtName.setText("");
@@ -345,9 +344,21 @@ public final class ReservationMenu extends javax.swing.JFrame {
         roomList = new ArrayList();
         String name = TxtNameCustomer.getText();
         String lastName = TxtLastNameCustomer.getText();
-       
+        if(name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Insert name");
+            return;
+        }
+        if(lastName.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Insert lastname");
+            return;
+        }
         cardType = TxtCardType.getText();
+        if(cardType.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Insert cardType");
+            return;
+        }
         int cardNumber = Integer.parseInt(TxtCardNumber.getText());
+     
         String securityCode = new String (TxtPSecurityCode.getPassword());
         String date = TxtFExpirationDate.getText();
         boolean response = validateCard(cardNumber);
@@ -367,7 +378,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 for(int l = 0; l < GlobalVariables.getInstance().hotel.getSeasonList().size();l++ ){
                   
                     try {
-                        JOptionPane.showMessageDialog(this, "Entre");
+                      
                         Date fecha1 = formato.parse(GlobalVariables.getInstance().hotel.getSeasonList().get(l).getStartDate());
                         Date fecha2 = formato.parse(GlobalVariables.getInstance().hotel.getSeasonList().get(l).getFinalDate());
                         Date fecha3 = formato.parse(ReturnDate());
@@ -407,7 +418,6 @@ public final class ReservationMenu extends javax.swing.JFrame {
                     amount = GlobalVariables.getInstance().hotel.getRoomsList().get(i).getPrice();
                     amount += (GlobalVariables.getInstance().numberRooms*GlobalVariables.getInstance().nightsDuration)*amount;
                 }
-                JOptionPane.showMessageDialog(this, amount);
                 Reservation reservation = new Reservation(GlobalVariables.getInstance().entryDate,
                         GlobalVariables.getInstance().departureDate,
                         GlobalVariables.getInstance().nightsDuration,
@@ -460,7 +470,7 @@ public final class ReservationMenu extends javax.swing.JFrame {
         } 
         JOptionPane.showMessageDialog(this, "Hotel without rooms");
     }//GEN-LAST:event_jButton1ActionPerformed
-    public boolean validateRoom(int j){
+    public static boolean validateRoom(int j){
         boolean control1=false;
         boolean control2=false;
         Calendar c = Calendar.getInstance();
@@ -504,7 +514,6 @@ public final class ReservationMenu extends javax.swing.JFrame {
                 
             }else{
                 int daysStart = startDate.getActualMaximum(Calendar.DAY_OF_MONTH);
-                JOptionPane.showMessageDialog(this, daysStart);
                 int daysDeparture = departureDate.getActualMaximum(Calendar.DAY_OF_MONTH);
                 for(int i = startday; i <=daysStart;i++){
                     daysStart = startDate.getActualMaximum(Calendar.DAY_OF_MONTH);

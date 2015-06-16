@@ -17,10 +17,11 @@ public class GlobalVariables {
     public int amountAdults;
     public int numberRooms;
     public Person person;
-    
+    public ArrayList<Reservation> reservationList;
     public GlobalVariables() {
         peopleList = new ArrayList();
         hotelList = new ArrayList();
+        reservationList = new ArrayList();
     }
     
     //Valid existence of the single instance
